@@ -1,4 +1,6 @@
 node-remote
 ===========
 
-Web app to remotely control my media machine
+* Send keyboard commands to my media machine from my phone/tablet
+* Open specific URLs on my media machine from my phone/tablet
+* Set the volume of my media machine from my phone/tablet
