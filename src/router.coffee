@@ -1,4 +1,4 @@
-keyInputCtrl    = require './keyboard_input/controller'
+keyInputCtrl    = require './xmacro/controller'
 volumeCtrl      = require './volume/controller'
 
 module.exports =

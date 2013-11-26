@@ -1,5 +1,5 @@
 expect        = require('chai').expect
-XMacroPlay    = require '../../../src/keyboard_input/xmacroplay'
+XMacroPlay    = require '../../../src/xmacro/xmacroplay'
 
 describe "XMacroPlay", ->
 
@@ -23,9 +23,6 @@ describe "XMacroPlay", ->
 
   describe "when creating valid commands", ->
     it "should create a command with proper newlines", ->
-      keys = [
-        'MotionNotify 465 350'
-        'KeyStrPress space'
-      ]
-      result = xmacroplay.buildCommand keys: keys
-      expect(result).to.equal "printf \"MotionNotify 465 350\\nKeyStrPress space\" | xmacroplay \"$DISPLAY\""
+      keys = ['space']
+      result = xmacroplay.buildCommand keys
+      expect(result).to.equal "printf \"KeyStrPress space\\nKeyStrRelease space\" | xmacroplay \"$DISPLAY\""
