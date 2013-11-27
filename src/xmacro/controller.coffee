@@ -5,6 +5,6 @@ commander = new Commander
 xmacro    = new XMacroPlay
 
 module.exports =
-  get: (req, res) ->
-    commander.exec xmacro.buildCommand(req.query.keys)
-    res.send "Sent keyinput: #{req.query.keys}"
+  post: (req, res) ->
+    commander.exec xmacro.buildCommand(req.body.keys)
+    res.redirect "/"

@@ -1,7 +1,15 @@
+path    = require "path"
 express = require 'express'
 router  = require './router'
 
 app     = express()
+
+app.configure ->
+  app.set "views", __dirname
+  app.set "view engine", "jade"
+  app.use express.urlencoded()
+  app.use express.json()
+
 router.configure app
 
 app.listen 9000
