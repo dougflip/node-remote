@@ -1,7 +1,13 @@
 h3 Netflix
 
-mixin keyboardShort("play/pause", "space")
++keyboardShort("play/pause", "space")
 
-mixin keyboardShort("Full Screen", "f")
++keyboardShort("Full Screen", "f")
 
-mixin keyboardShort("Exit Full Screen", "esc")
++keyboardShort("Exit Full Screen", "esc")
+
++browserForm
+  input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
+  input(type="hidden", name="url", value="www.netflix.com")
+  button(type="submit") Launch Netflix
+

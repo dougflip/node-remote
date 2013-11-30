@@ -5,3 +5,7 @@ h3 System
 
   form(action="/volume/mute", method="post")
     button(type="submit") mute
+
+  +browserForm
+    input(type="text", name="url", placeholder="www.google.com")
+    button(type="submit") Launch Chrome

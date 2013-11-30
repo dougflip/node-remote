@@ -2,3 +2,7 @@ mixin keyboardShort(name, key)
    form(action="/key_input", method="post")
      input(type="hidden", name="keys[]", value=key)
      button(type="submit") #{name}
+
+mixin browserForm()
+  form(action="/browser", method="post")
+    block
