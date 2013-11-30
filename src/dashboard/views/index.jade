@@ -1,20 +1,9 @@
+include ./mixins
+
 h1 Node Remote
 
 section
-  h3 Keys
-  form(action="/key_input", method="post")
-    input(type="hidden", name="keys[]", value="space")
-    button(type="submit") spacebar
-
-  form(action="/key_input", method="post")
-    input(type="hidden", name="keys[]", value="esc")
-    button(type="submit") ESC
+  include ./_system
 
 section
-  h3 Volume
-  form(action="/volume/set", method="post")
-    input(type="number", value="50", name="options[level]")
-    button(type="submit") set volume
-
-  form(action="/volume/mute", method="post")
-    button(type="submit") mute
+  include ./_netflix
