@@ -7,6 +7,7 @@ app     = express()
 app.configure ->
   app.set "views", __dirname
   app.set "view engine", "jade"
+  app.use express.static(path.join(__dirname, "../public"))
   app.use express.urlencoded()
   app.use express.json()
 
