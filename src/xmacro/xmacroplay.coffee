@@ -1,21 +1,18 @@
-Keystroke   = require './keystroke'
+keystroke   = require './keystroke'
 
-class XMacroPlay
+areKeysValid = (keys) ->
+  keys? && keys.length > 0
 
-  buildCommand: (keys) ->
+buildKeystrokes = (keys) ->
+  result = []
+  keys.forEach (x) -> result = result.concat keystroke.create x
+  result
+
+buildCommand = (keys) ->
+  "printf \"#{keys.join("\\n")}\" | xmacroplay \"$DISPLAY\""
+
+module.exports =
+  create: (keys) ->
     return null unless areKeysValid keys
 
-    buildCommand buildKeystrokes keys
-
-  areKeysValid = (keys) ->
-    keys? && keys.length > 0
-
-  buildKeystrokes = (keys) ->
-    result = []
-    keys.forEach (x) -> result = result.concat new Keystroke(x).build()
-    result
-
-  buildCommand = (keys) ->
-    "printf \"#{keys.join("\\n")}\" | xmacroplay \"$DISPLAY\""
-
-module.exports = XMacroPlay
+    buildCommand buildKeystrokes keys.split(' ')

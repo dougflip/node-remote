@@ -6,6 +6,8 @@ h3 System
   form(action="/volume/mute", method="post")
     button(type="submit") mute
 
+  +keyboardShort("Close Current Window", "press:Alt_L press:F4 release:F4 release:Alt_L")
+
   +browserForm
     input(type="text", name="url", placeholder="www.google.com")
     button(type="submit") Launch Chrome

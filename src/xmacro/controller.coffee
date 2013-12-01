@@ -1,10 +1,9 @@
 Commander     = require '../commander'
-XMacroPlay    = require './xmacroplay'
+xmacro        = require './xmacroplay'
 
 commander = new Commander
-xmacro    = new XMacroPlay
 
 module.exports =
   post: (req, res) ->
-    commander.exec xmacro.buildCommand(req.body.keys)
+    commander.exec xmacro.create(req.body.keys)
     res.redirect "/"
