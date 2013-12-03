@@ -1,5 +1,5 @@
 mixin keyboardShort(name, key)
-   form(action="/key_input", method="post")
+   form(action="/keys", method="post")
      input(type="hidden", name="keys", value=key)
      button(type="submit") #{name}
 
