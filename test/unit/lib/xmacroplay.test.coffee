@@ -1,5 +1,5 @@
 expect        = require('chai').expect
-xmacroplay    = require '../../../src/xmacro/xmacroplay'
+xmacroplay    = require '../../../src/lib/xmacroplay'
 
 describe "XMacroPlay", ->
 

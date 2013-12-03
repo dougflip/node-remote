@@ -1,5 +1,5 @@
 expect        = require('chai').expect
-keystroke     = require '../../../src/xmacro/keystroke'
+keystroke     = require '../../../src/lib/keystroke'
 
 describe "Keystroke", ->
 

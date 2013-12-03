@@ -1,5 +1,5 @@
 expect      = require('chai').expect
-Browser     = require '../../../src/browser'
+Browser     = require '../../../src/lib/browser'
 
 describe "Browser", ->
   browser = null

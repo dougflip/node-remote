@@ -1,5 +1,5 @@
 expect        = require('chai').expect
-Volume        = require '../../../src/volume'
+Volume        = require '../../../src/lib/volume'
 
 describe "Volume", ->
 

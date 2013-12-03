@@ -1,7 +1,7 @@
-Commander   = require './commander'
-Volume      = require './volume'
-Browser     = require './browser'
-xmacro      = require './xmacro/xmacroplay'
+Commander   = require './lib/commander'
+Volume      = require './lib/volume'
+Browser     = require './lib/browser'
+xmacro      = require './lib/xmacroplay'
 
 commander   = new Commander
 browser     = new Browser
