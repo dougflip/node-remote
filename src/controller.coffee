@@ -15,7 +15,7 @@ module.exports =
     res.redirect "/"
 
   dashboard: (req, res) ->
-    res.render("dashboard/views/index")
+    res.render("index")
 
   keys: (req, res) ->
     commander.exec xmacro.create(req.body.keys)
