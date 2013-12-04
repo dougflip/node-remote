@@ -1,11 +1,10 @@
 Commander   = require './lib/commander'
-Volume      = require './lib/volume'
 Browser     = require './lib/browser'
+system      = require './lib/system'
 xmacro      = require './lib/xmacroplay'
 
 commander   = new Commander
 browser     = new Browser
-volume      = new Volume
 
 module.exports =
   browser: (req, res) ->
@@ -21,7 +20,7 @@ module.exports =
     commander.exec xmacro.create(req.body.keys)
     res.redirect "/"
 
-  volume: (req, res) ->
+  system: (req, res) ->
     cmd = req.params.cmd
-    commander.exec volume[cmd].call(this, req.body.options)
+    commander.exec system[cmd].call(this, req.body.options)
     res.redirect '/'
