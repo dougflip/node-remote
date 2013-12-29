@@ -11,3 +11,17 @@ h3 Netflix
   input(type="hidden", name="url", value="www.netflix.com")
   button(type="submit") Launch Netflix
 
++browserForm
+  input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
+  input(type="text", id="netflix-search", name="url")
+  button(type="submit", onclick="document.getElementById('netflix-search').value = 'http://movies.netflix.com/WiSearch?v1=' + document.getElementById('netflix-search').value") Netflix Search
+
++browserForm
+  input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
+  input(type="hidden", name="url", value="http://movies.netflix.com/WiPlayer?movieid=70136120")
+  button(type="submit") The Office
+
++browserForm
+  input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
+  input(type="hidden", name="url", value="http://movies.netflix.com/WiPlayer?movieid=70136141")
+  button(type="submit") It's Always Sunny in Philadelphia
