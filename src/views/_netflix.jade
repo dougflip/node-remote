@@ -31,3 +31,10 @@ div.netflix--media-conatiner.clearfix
       input(type="hidden", name="url", value="http://movies.netflix.com/WiPlayer?movieid=70136141")
       button(type="submit")
         img(src="http://cdn6.nflximg.net/webp/9386/869386.webp")
+
+  div.netflix--media-item
+    +browserForm
+      input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
+      input(type="hidden", name="url", value="http://movies.netflix.com/WiPlayer?movieid=70136138&trkid=2361637")
+      button(type="submit")
+        img(src="http://cdn3.nflximg.net/webp/0823/2110823.webp")

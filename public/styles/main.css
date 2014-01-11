@@ -8,6 +8,55 @@ img{
 	height: auto;
 }
 
+h1, h2, h3, h4{
+	margin: 0;
+	padding: 0;
+}
+
+.system {
+	background-color: #999;
+	padding: 1em;
+	color: #fff;
+}
+
+.system--logo{
+	float: left;
+}
+
+.system--search{
+	float: right;
+	width: 60%;
+}
+
+.system--search-term{
+	width: 100%;
+}
+
+.system--col{
+	float: left;
+	width:45%;
+}
+
+.system--volume-level{
+	max-width: 4em;
+}
+
+.system button{
+	border: 1px solid #353434;
+	border-radius: 4px 4px 4px 4px;
+	color: white;
+	padding: 6.5px;
+	font-weight: 700;
+	text-shadow: 0 1px 0 rgba(0,0,0,.5);
+	background: #b9090b;
+	background: -moz-linear-gradient(top, #b9090b 1%, #9f0002 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#b9090b), color-stop(100%,#9f0002));
+	background: -webkit-linear-gradient(top, #b9090b 1%,#9f0002 100%);
+	background: -o-linear-gradient(top, #b9090b 1%,#9f0002 100%);
+	background: -ms-linear-gradient(top, #b9090b 1%,#9f0002 100%);
+	background: linear-gradient(to bottom, #666 1%,#333 100%);
+}
+
 .netflix{
 	background-color: #B9090B;
 	padding: 1em;
@@ -28,7 +77,7 @@ img{
 }
 
 .netflix--media-item{
-	width: 45%;
+	max-width: 10.2em;
 	float: left;
 }
 

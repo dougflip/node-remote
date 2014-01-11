@@ -1,16 +1,24 @@
-h3 System
-  form(action="/system/suspend", method="post")
-      button(type="submit") suspend
+div.section-header.clearfix
+  h3.system--logo
+    | Node Remote
+  .system--search
+    +browserForm
+      input.system--search-term(type="text", name="url", placeholder="Launch Chrome...")
 
-  form(action="/system/setVolume", method="post")
-    input(type="number", value="50", name="options[level]")
-    button(type="submit") set volume
+.clearfix
+  .system--col
+    +keyboardShort("Close Window", "press:Alt_L press:F4 release:F4 release:Alt_L")
 
-  form(action="/system/mute", method="post")
-    button(type="submit") mute
+  .system--col
+    form(action="/system/suspend", method="post")
+        button(type="submit") suspend
 
-  +keyboardShort("Close Current Window", "press:Alt_L press:F4 release:F4 release:Alt_L")
+.clearfix
+  .system--col
+    form(action="/system/setVolume", method="post")
+      input.system--volume-level(type="number", value="50", name="options[level]")
+      button(type="submit") volume
 
-  +browserForm
-    input(type="text", name="url", placeholder="www.google.com")
-    button(type="submit") Launch Chrome
+  .system--col
+    form(action="/system/mute", method="post")
+      button(type="submit") mute
