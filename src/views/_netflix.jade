@@ -4,8 +4,7 @@ div.section-header.clearfix
   .netflix--search
     +browserForm
       input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
-      input.netflix--search-term(type="text", id="netflix-search", name="url")
-      button(type="submit", onclick="document.getElementById('netflix-search').value = 'http://movies.netflix.com/WiSearch?v1=' + document.getElementById('netflix-search').value") Search
+      input.netflix--search-term(type="text", id="netflix-search", name="url", placeholder="Search...")
 
 +keyboardShort("play/pause", "space")
 

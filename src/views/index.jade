@@ -3,11 +3,12 @@
 html
   head
     title NodeRemote
-    meta(name="viewport", content="width=device-width; initial-scale=1.0")
+    meta(name="viewport", content="width=device-width")
     meta(name="mobile-web-app-capable", content="yes")
     link(rel="shortcut icon", sizes="126x126", href="/images/icon-196.png")
     link(rel="apple-touch-icon", href="/images/icon-128.jpg")
     link(rel="stylesheet", href="/styles/main.css")
+
   body
 
     include ./mixins
@@ -19,3 +20,6 @@ html
 
     section.netflix
       include ./_netflix
+
+  script(src="/bowercomponents/jquery/jquery.min.js")
+  script(src="/scripts/main.js")

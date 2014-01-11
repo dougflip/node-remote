@@ -10,6 +10,7 @@ img{
 
 .netflix{
 	background-color: #B9090B;
+	padding: 1em;
 }
 
 .netflix--logo{
@@ -19,11 +20,11 @@ img{
 
 .netflix--search{
 	float: right;
-	width: 50%;
+	width: 65%;
 }
 
 .netflix--search-term{
-	width: 90%;
+	width: 100%;
 }
 
 .netflix button{
