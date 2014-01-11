@@ -1,5 +1,10 @@
 div.section-header.clearfix
-  img.netflix--logo(src="https://secure.netflix.com/us/layout/ecweb/common/netflix_logo_only_231@2x.png")
+  .netflix--logo
+    +browserForm
+      input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
+      input(type="hidden", name="url", value="http://www.netflix.com")
+      button.button-reset(type="submit")
+        img(src="https://secure.netflix.com/us/layout/ecweb/common/netflix_logo_only_231@2x.png")
 
   .netflix--search
     +browserForm
@@ -12,19 +17,17 @@ div.section-header.clearfix
 
 +keyboardShort("Exit Full Screen", "Escape")
 
-+browserForm
-  input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
-  input(type="hidden", name="url", value="www.netflix.com")
-  button(type="submit") Launch Netflix
+div.netflix--media-conatiner.clearfix
+  div.netflix--media-item
+    +browserForm
+      input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
+      input(type="hidden", name="url", value="http://movies.netflix.com/WiPlayer?movieid=70136120")
+      button(type="submit")
+        img(src="http://cdn4.nflximg.net/webp/0604/3360604.webp")
 
-+browserForm
-  input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
-  input(type="hidden", name="url", value="http://movies.netflix.com/WiPlayer?movieid=70136120")
-  button(type="submit")
-    img(src="http://cdn4.nflximg.net/webp/0604/3360604.webp")
-
-+browserForm
-  input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
-  input(type="hidden", name="url", value="http://movies.netflix.com/WiPlayer?movieid=70136141")
-  button(type="submit")
-    img(src="http://cdn6.nflximg.net/webp/9386/869386.webp")
+  div.netflix--media-item
+    +browserForm
+      input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
+      input(type="hidden", name="url", value="http://movies.netflix.com/WiPlayer?movieid=70136141")
+      button(type="submit")
+        img(src="http://cdn6.nflximg.net/webp/9386/869386.webp")
