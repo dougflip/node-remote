@@ -1,4 +1,11 @@
-h3 Netflix
+div.section-header.clearfix
+  img.netflix--logo(src="https://secure.netflix.com/us/layout/ecweb/common/netflix_logo_only_231@2x.png")
+
+  .netflix--search
+    +browserForm
+      input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
+      input.netflix--search-term(type="text", id="netflix-search", name="url")
+      button(type="submit", onclick="document.getElementById('netflix-search').value = 'http://movies.netflix.com/WiSearch?v1=' + document.getElementById('netflix-search').value") Search
 
 +keyboardShort("play/pause", "space")
 
@@ -13,15 +20,12 @@ h3 Netflix
 
 +browserForm
   input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
-  input(type="text", id="netflix-search", name="url")
-  button(type="submit", onclick="document.getElementById('netflix-search').value = 'http://movies.netflix.com/WiSearch?v1=' + document.getElementById('netflix-search').value") Netflix Search
-
-+browserForm
-  input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
   input(type="hidden", name="url", value="http://movies.netflix.com/WiPlayer?movieid=70136120")
-  button(type="submit") The Office
+  button(type="submit")
+    img(src="http://cdn4.nflximg.net/webp/0604/3360604.webp")
 
 +browserForm
   input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
   input(type="hidden", name="url", value="http://movies.netflix.com/WiPlayer?movieid=70136141")
-  button(type="submit") It's Always Sunny in Philadelphia
+  button(type="submit")
+    img(src="http://cdn6.nflximg.net/webp/9386/869386.webp")

@@ -7,14 +7,15 @@ html
     meta(name="mobile-web-app-capable", content="yes")
     link(rel="shortcut icon", sizes="126x126", href="/images/icon-196.png")
     link(rel="apple-touch-icon", href="/images/icon-128.jpg")
+    link(rel="stylesheet", href="/styles/main.css")
   body
 
     include ./mixins
 
     h1 Node Remote
 
-    section
+    section.system
       include ./_system
 
-    section
+    section.netflix
       include ./_netflix
