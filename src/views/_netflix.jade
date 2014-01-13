@@ -7,9 +7,8 @@ div.section-header.clearfix
         img(src="https://secure.netflix.com/us/layout/ecweb/common/netflix_logo_only_231@2x.png")
 
   .netflix--search
-    +browserForm
-      input(type="hidden", name="flags[--profile-directory]", value="\"Profile 1\"")
-      input.netflix--search-term(type="text", id="netflix-search", name="url", placeholder="Search...")
+    form(action="/netflix/search", method="POST")
+      input.netflix--search-term(type="text", name="searchTerm", placeholder="Search...")
 
 +keyboardShort("play/pause", "space")
 
