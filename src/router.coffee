@@ -1,8 +1,8 @@
-controller    = require './controller'
+coreCtrl    = require './controllers/core'
 
 module.exports =
   configure: (app) ->
-    app.get '/', controller.dashboard
-    app.post '/browser', controller.browser
-    app.post '/keys', controller.keys
-    app.post '/system/:cmd', controller.system
+    app.get '/', coreCtrl.dashboard
+    app.post '/browser', coreCtrl.browser
+    app.post '/keys', coreCtrl.keys
+    app.post '/system/:cmd', coreCtrl.system
