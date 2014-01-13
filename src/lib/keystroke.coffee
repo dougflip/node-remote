@@ -1,14 +1,11 @@
-createPress = (key) ->
-  "KeyStrPress #{key}"
-
-createRelease = (key) ->
-  "KeyStrRelease #{key}"
+keyInputMap =
+  'press': (key) ->
+    "KeyStrPress #{key}"
+  'release': (key) ->
+    "KeyStrRelease #{key}"
 
 createFullStroke = (key) ->
-  [
-    createPress key
-    createRelease key
-  ]
+  "KeyStr #{key}"
 
 module.exports =
   # Accepts three styles of input
@@ -20,9 +17,6 @@ module.exports =
 
     command = key.split ':'
     if command.length == 1
-      return createFullStroke key
+      return createFullStroke command[0]
 
-    if command[0] == 'press'
-      return [createPress command[1]]
-
-    [createRelease command[1]]
+    keyInputMap[command[0]] command[1]
