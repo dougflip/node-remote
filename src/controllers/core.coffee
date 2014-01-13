@@ -20,6 +20,10 @@ module.exports =
     commander.exec xmacro.create(req.body.keys)
     res.redirect "/"
 
+  mouseMove: (req, res) ->
+    commander.exec "xdotool mousemove_relative -- #{req.body.xrel} #{req.body.yrel}"
+    res.json(200)
+
   system: (req, res) ->
     cmd = req.params.cmd
     commander.exec system[cmd].call(this, req.body.options)

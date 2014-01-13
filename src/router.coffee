@@ -6,6 +6,7 @@ module.exports =
     app.get '/', coreCtrl.dashboard
     app.post '/browser', coreCtrl.browser
     app.post '/keys', coreCtrl.keys
+    app.post '/mousemove', coreCtrl.mouseMove
     app.post '/system/:cmd', coreCtrl.system
 
     app.post '/netflix/search', netflixCtrl.search
