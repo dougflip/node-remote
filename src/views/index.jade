@@ -20,7 +20,8 @@ html
       include ./_netflix
 
     section.trackpad
-      input.trackpad--input(type="text", name="str", placeholder="Type input...")
+      form(action="/text", method="POST")
+        input.trackpad--input(type="text", name="text", placeholder="Type input...")
       .trackpad--sensor
       .trackpad--buttons.clearfix
         .trackpad--click.trackpad--left-click(data-which="1")
