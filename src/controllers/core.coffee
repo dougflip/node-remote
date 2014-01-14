@@ -17,7 +17,7 @@ module.exports =
     res.render("index")
 
   keys: (req, res) ->
-    commander.exec xmacro.create(req.body.keys)
+    commander.exec xmacro.keyStr(req.body.keys)
     res.redirect "/"
 
   mouseMove: (req, res) ->
