@@ -135,7 +135,7 @@ h1, h2, h3, h4{
 
 .trackpad--input{
 	float: left;
-	width: 90%;
+	width: 80%;
 	height: 100%;
 }
 
@@ -143,10 +143,11 @@ h1, h2, h3, h4{
 	width: 100%;
 	height: 100%;
 	border: none;
+	padding: 0;
 }
 
 .trackpad--enter{
-	width: 10%;
+	width: 20%;
 	height: 100%;
 	float: right;
 }
