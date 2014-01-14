@@ -2,7 +2,7 @@ Commander   = require '../lib/commander'
 Browser     = require '../lib/browser'
 
 BASE_SEARCH_URL = 'http://movies.netflix.com/WiSearch?v1='
-browserFlags = '--profile-directory': "Profile 1"
+browserFlags = '--profile-directory': "\"Profile 1\""
 commander = new Commander
 browser = new Browser
 
