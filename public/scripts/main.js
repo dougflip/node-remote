@@ -20,4 +20,8 @@ $(function(){
 			prevY = touch.clientY;
 		}
 	}, false);
+
+	$('.trackpad--click').on('click', function(){
+		$.ajax({ url:'/mouseclick', type: 'POST', data:{ which: $(this).data('which') } })
+	});
 });

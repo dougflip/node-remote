@@ -1,6 +1,11 @@
+html{
+	height: 100%;
+}
+
 body{
 	margin: 0;
 	padding: 0;
+	height: 100%;
 }
 
 img{
@@ -120,13 +125,40 @@ h1, h2, h3, h4{
   clear: both;
 }
 
-
-.trackpad--sensor{
-	width: 100%;
-	height: 30em;
-	background-color: lightgoldenrodyellow;
+.trackpad{
+	height: 100%;
 }
 
 .trackpad--input{
 	width: 100%;
+	height: 10%;
+}
+
+.trackpad--sensor{
+	width: 100%;
+	height: 75%;
+	background-color: #333;
+}
+
+.trackpad--buttons{
+	height: 15%;
+}
+
+.trackpad--click{
+	width:50%;
+	height: 100%;
+}
+
+.trackpad--left-click{
+	float: left;
+	background-color: #ccc;
+}
+
+.trackpad--left-click:active, .trackpad--right-click:active{
+	background-color: yellow;
+}
+
+.trackpad--right-click{
+	float: right;
+	background-color: #999;
 }

@@ -22,6 +22,9 @@ html
     section.trackpad
       input.trackpad--input(type="text", name="str", placeholder="Type input...")
       .trackpad--sensor
+      .trackpad--buttons.clearfix
+        .trackpad--click.trackpad--left-click(data-which="1")
+        .trackpad--click.trackpad--right-click(data-which="3")
 
   script(src="/bowercomponents/jquery/jquery.min.js")
   script(src="/scripts/main.js")

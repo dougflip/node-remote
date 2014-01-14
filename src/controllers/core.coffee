@@ -24,6 +24,9 @@ module.exports =
     commander.exec "xdotool mousemove_relative -- #{req.body.xrel} #{req.body.yrel}"
     res.json(200)
 
+  mouseClick: (req, res) ->
+    commander.exec "xdotool click #{req.body.which}"
+
   system: (req, res) ->
     cmd = req.params.cmd
     commander.exec system[cmd].call(this, req.body.options)
