@@ -129,14 +129,8 @@ h1, h2, h3, h4{
 	height: 100%;
 }
 
-.trackpad--controls{
-	height: 10%;
-}
-
 .trackpad--input{
-	float: left;
-	width: 75%;
-	height: 100%;
+	height: 7%;
 }
 
 .trackpad--input input{
@@ -145,26 +139,9 @@ h1, h2, h3, h4{
 	border: none;
 	padding: 0;
 }
-
-.trackpad--enter{
-	width: 25%;
-	height: 100%;
-	float: right;
-}
-
-.trackpad--enter form{
-	height: 100%;
-}
-
-.trackpad--enter button{
-	width: 100%;
-	height: 100%;
-	font-size: 2em;
-}
-
 .trackpad--sensor{
 	width: 100%;
-	height: 75%;
+	height: 70%;
 	background-color: #333;
 }
 
@@ -193,4 +170,20 @@ h1, h2, h3, h4{
 .trackpad--right-click{
 	width: 40%;
 	background-color: #999;
+}
+
+.trackpad--keys{
+	height: 8%;
+}
+
+.trackpad--keys form{
+	width: 25%;
+	height: 100%;
+	float: left;
+}
+
+.trackpad--keys button{
+	width: 100%;
+	height: 100%;
+	text-transform: uppercase;
 }

@@ -20,16 +20,18 @@ html
       include ./_netflix
 
     section.trackpad
-      .trackpad--controls
-        form.trackpad--input(action="/text", method="POST")
-          input.trackpad--text(type="text", name="text", placeholder="Type input...")
-        .trackpad--enter.clearfix
-          +keyboardShort("[enter]","KP_Enter")
+      form.trackpad--input(action="/text", method="POST")
+        input.trackpad--text(type="text", name="text", placeholder="Type input...")
       .trackpad--sensor
       .trackpad--buttons.clearfix
         .trackpad--click.trackpad--left-click(data-url="/mouse/leftClick")
         .trackpad--click.trackpad--double-click(data-url="/mouse/doubleClick")
         .trackpad--click.trackpad--right-click(data-url="/mouse/rightClick")
+      .trackpad--keys.clearfix
+        +keyboardShort("[enter]", "KP_Enter")
+        +keyboardShort("[pg up]", "Prior")
+        +keyboardShort("[pd down]", "Next")
+        +keyboardShort("[backspace]", "BackSpace")
 
   script(src="/bowercomponents/jquery/jquery.min.js")
   script(src="/scripts/main.js")

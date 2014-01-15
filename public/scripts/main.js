@@ -24,4 +24,10 @@ $(function(){
 	$('.trackpad--click').on('click', function(){
 		$.ajax({ url:$(this).data('url'), type: 'POST' })
 	});
+
+	$('.keyboard-short').on('submit', function(){
+		$this = $(this);
+		$.ajax({ url: $this.attr('action'), type: 'POST', data: $this.serialize() });
+		return false;
+	});
 });
