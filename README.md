@@ -3,7 +3,7 @@ node-remote
 
 ## Getting Started
 
-- Install [xmacroplay])(http://xmacro.sourceforge.net) (I think I used apt-get, need to check)
+- Install [xmacroplay](http://xmacro.sourceforge.net) (I think I used apt-get, need to check)
 - Install [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) (I think I used apt-get, need to check)
 - Install latest of [Node](http://nodejs.org/)
 - `npm install -g coffee-script` install CoffeeScript globally
@@ -12,8 +12,10 @@ node-remote
 ## Running the Server
 Install dependencies
 
-`npm install`
-`bower install`
+```
+npm install
+bower install
+```
 
 For regular debugging you can just fire up the app with coffee:
 
@@ -39,6 +41,23 @@ by referencing the server machine by ip - something like 192.168.x.x:9000.
 The controls on the UI send HTTP requests to the Node server.  
 The Node server then issues commands directly to the host machine.  
 Most of these end up being xmacro (keyboard input) or xdotool (mouse input) commands.
+
+## Features
+
+- Volume control
+- Open Chrome (optionally to a URL)
+- Close the active window (alt + F4)
+- Suspend
+- Netflix
+    - search (launches a browser to "Profile 1")
+    - pause/play (key input of "spacebar")
+    - full screen (key input of "f")
+    - exit full screen (key input of "Escape")
+    - some hard coded links (yes, I still watch X-files)
+- Mouse Input
+    - a touchpad (runs over AJAX - I'd like to try WebSockets at some point)
+    - left click
+    - right click
 
 ## Running Tests
 
