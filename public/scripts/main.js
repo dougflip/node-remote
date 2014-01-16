@@ -22,6 +22,6 @@ $(function(){
 	}, false);
 
 	$('.trackpad--click').on('click', function(){
-		$.ajax({ url:'/mouseclick', type: 'POST', data:{ which: $(this).data('which') } })
+		$.ajax({ url:$(this).data('url'), type: 'POST' })
 	});
 });

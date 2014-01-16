@@ -27,8 +27,9 @@ html
           +keyboardShort("[enter]","KP_Enter")
       .trackpad--sensor
       .trackpad--buttons.clearfix
-        .trackpad--click.trackpad--left-click(data-which="1")
-        .trackpad--click.trackpad--right-click(data-which="3")
+        .trackpad--click.trackpad--left-click(data-url="/mouse/leftClick")
+        .trackpad--click.trackpad--double-click(data-url="/mouse/doubleClick")
+        .trackpad--click.trackpad--right-click(data-url="/mouse/rightClick")
 
   script(src="/bowercomponents/jquery/jquery.min.js")
   script(src="/scripts/main.js")

@@ -173,20 +173,24 @@ h1, h2, h3, h4{
 }
 
 .trackpad--click{
-	width:50%;
 	height: 100%;
+	float: left;
 }
 
 .trackpad--left-click{
-	float: left;
+	width: 40%;
 	background-color: #ccc;
 }
 
-.trackpad--left-click:active, .trackpad--right-click:active{
+.trackpad--left-click:active, .trackpad--right-click:active, .trackpad-double-click:active{
 	background-color: yellow;
 }
 
+.trackpad--double-click{
+	width: 20%;
+}
+
 .trackpad--right-click{
-	float: right;
+	width: 40%;
 	background-color: #999;
 }
