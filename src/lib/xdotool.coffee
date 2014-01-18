@@ -9,4 +9,4 @@ module.exports =
     "xdotool click 3"
 
   doubleClick: ->
-    "xdotool click 1 --repeat 2"
+    "xdotool click --repeat 2 1"

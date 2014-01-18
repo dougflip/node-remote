@@ -22,4 +22,4 @@ describe 'xdotool', ->
 
 		it 'should perform a double click', ->
 			result = xdotool.doubleClick()
-			expect(result).to.eql 'xdotool click 1 --repeat 2'
+			expect(result).to.eql 'xdotool click --repeat 2 1'
