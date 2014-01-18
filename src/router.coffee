@@ -10,6 +10,7 @@ module.exports =
     app.post '/text', coreCtrl.text
     app.post '/system/:cmd', coreCtrl.system
 
+    app.post '/mouse/moveRelative', xdoCtrl.moveRelative
     app.post '/mouse/leftClick', xdoCtrl.leftClick
     app.post '/mouse/rightClick', xdoCtrl.rightClick
     app.post '/mouse/doubleClick', xdoCtrl.doubleClick

@@ -14,7 +14,7 @@ $(function(){
 			var deltaX = touch.clientX - prevX;
 			var deltaY = touch.clientY - prevY;
 
-			$.ajax({url: '/mousemove', type: 'POST', data: { xrel: deltaX * 2, yrel: deltaY * 2 } });
+			$.ajax({url: '/mouse/moveRelative', type: 'POST', data: { xrel: deltaX * 2, yrel: deltaY * 2 } });
 
 			prevX = touch.clientX;
 			prevY = touch.clientY;
