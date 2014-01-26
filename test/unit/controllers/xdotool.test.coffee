@@ -3,37 +3,76 @@ expect				= require('chai').expect
 XDoToolCtrl		= require '../../../src/controllers/xdotool'
 
 describe 'XDoToolCtrl', ->
-	xdotoolCtrl = xdotoolStub = xdotoolApi = commanderStub = commanderApi = req = resStub = resApi = null
+	xdotoolCtrl = xdotool = commander = req = res = null
 	beforeEach ->
-		xdotoolApi = moveRelative: (->), leftClick: (->), rightClick: (->), doubleClick: (->)
-		commanderApi = exec: ->
-		resApi = json: ->
+		xdotool = moveRelative: sinon.stub(), leftClick: sinon.stub(), rightClick: sinon.stub(), doubleClick: sinon.stub()
+		commander = exec: sinon.stub()
+		res = json: sinon.stub()
+		xdotoolCtrl = new XDoToolCtrl commander, xdotool
 	
 	describe 'move mouse relative', ->
 		beforeEach ->
 			req = body: xrel: 1, yrel: -1
-			resStub = sinon.stub(resApi, 'json')
-			commanderStub = sinon.stub(commanderApi, 'exec')
-			xdotoolStub = sinon.stub(xdotoolApi, 'moveRelative').returns("xdotool cmd")
-			xdotoolCtrl = new XDoToolCtrl commanderApi, xdotoolApi
+			xdotool.moveRelative.returns('xdotool cmd')
+			xdotoolCtrl.moveRelative req, res
 
 		it 'should provide the correct arguments to the xdotool module', ->
-			xdotoolCtrl.moveRelative req, resApi
-			expect(xdotoolStub.calledOnce).to.eql true
-			expect(xdotoolStub.args[0][0]).to.eql 1
-			expect(xdotoolStub.args[0][1]).to.eql -1
+			expect(xdotool.moveRelative.calledOnce).to.be.true
+			expect(xdotool.moveRelative.calledWith(1, -1)).to.be.true
 
 		it 'should call the commander with the result of xdotool', ->
-			xdotoolCtrl.moveRelative req, resApi
-			expect(commanderStub.calledOnce).to.eql true
-			expect(commanderStub.args[0][0]).to.eql 'xdotool cmd'
+			expect(commander.exec.calledOnce).to.be.true
+			expect(commander.exec.calledWith('xdotool cmd')).to.be.true
 
 		it 'should respond as JSON with a 200 status', ->
-			xdotoolCtrl.moveRelative req, resApi
-			expect(resStub.calledOnce).to.eql true
-			expect(resStub.args[0][0]).to.eql 200
+			expect(res.json.calledOnce).to.be.true
+			expect(res.json.calledWith(200)).to.be.true
 
-	# describe 'mouse left click', ->
-	# 	it 'should call through to the xdotool module', ->
-	# 		xdotoolCtrl.left
+	describe 'mouse left click', ->
+		beforeEach ->
+			xdotool.leftClick.returns('xdotool left cmd')
+			xdotoolCtrl.leftClick req, res
+
+		it 'should call through to the xdotool module', ->
+			expect(xdotool.leftClick.calledOnce).to.be.true
+
+		it 'should call the commander with the result of xdotool', ->
+			expect(commander.exec.calledOnce).to.be.true
+			expect(commander.exec.calledWith('xdotool left cmd')).to.be.true
+
+		it 'should respond as JSON with 200 status', ->
+			expect(res.json.calledOnce).to.be.true
+			expect(res.json.calledWith(200)).to.be.true
+
+	describe 'mouse right click', ->
+		beforeEach ->
+			xdotool.rightClick.returns('xdotool right cmd')
+			xdotoolCtrl.rightClick req, res
+
+		it 'should call through to the xdotool module', ->
+			expect(xdotool.rightClick.calledOnce).to.be.true
+
+		it 'should call the commander with the result of xdotool', ->
+			expect(commander.exec.calledOnce).to.be.true
+			expect(commander.exec.calledWith('xdotool right cmd')).to.be.true
+
+		it 'should respond as JSON with 200 status', ->
+			expect(res.json.calledOnce).to.be.true
+			expect(res.json.calledWith(200)).to.be.true
+
+	describe 'mouse double click', ->
+		beforeEach ->
+			xdotool.doubleClick.returns('xdotool double cmd')
+			xdotoolCtrl.doubleClick req, res
+
+		it 'should call through to the xdotool module', ->
+			expect(xdotool.doubleClick.calledOnce).to.be.true
+
+		it 'should call the commander with the result of xdotool', ->
+			expect(commander.exec.calledOnce).to.be.true
+			expect(commander.exec.calledWith('xdotool double cmd')).to.be.true
+
+		it 'should respond as JSON with 200 status', ->
+			expect(res.json.calledOnce).to.be.true
+			expect(res.json.calledWith(200)).to.be.true
 
