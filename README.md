@@ -59,6 +59,11 @@ Most of these end up being xmacro (keyboard input) or xdotool (mouse input) comm
     - left click
     - right click
 
+## Branches
+
+I am going to try and keep `master` stable and tested on my actual media machine.
+So I'll work against the `dev` branch and periodically verify and merge to `master`.
+
 ## Running Tests
 
 ```
