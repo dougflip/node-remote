@@ -1,7 +1,6 @@
 Commander   = require '../lib/commander'
 Browser     = require '../lib/browser'
 system      = require '../lib/system'
-xmacro      = require '../lib/xmacroplay'
 
 commander   = new Commander
 browser     = new Browser
@@ -15,14 +14,6 @@ module.exports =
 
   dashboard: (req, res) ->
     res.render("index")
-
-  keys: (req, res) ->
-    commander.exec xmacro.keyStr(req.body.keys)
-    res.redirect "/"
-
-  text: (req, res) ->
-    commander.exec xmacro.string(req.body.text)
-    res.redirect "/"
 
   system: (req, res) ->
     cmd = req.params.cmd
