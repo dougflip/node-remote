@@ -1,0 +1,19 @@
+{
+	"mediaItems": [
+		{
+			"title": "The Office",
+			"mediaId": "70136120",
+			"imageUrl": "http://cdn4.nflximg.net/webp/0604/3360604.webp"
+		},
+		{
+			"title": "It's Always Sunny in Philadelphia",
+			"mediaId": "70136141",
+			"imageUrl": "http://cdn6.nflximg.net/webp/9386/869386.webp"
+		},
+		{
+			"title": "The X-Files",
+			"mediaId": "70136138",
+			"imageUrl": "http://cdn3.nflximg.net/webp/0823/2110823.webp"
+		}
+	]
+}

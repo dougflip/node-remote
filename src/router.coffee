@@ -1,6 +1,8 @@
 coreCtrl    = require './controllers/core'
-xdoCtrl			= require './controllers/xdotool'
+XDoToolCtrl	= require './controllers/xdotool'
 netflixCtrl	= require './controllers/netflix'
+
+xdoCtrl = new XDoToolCtrl
 
 module.exports =
   configure: (app) ->
@@ -10,9 +12,9 @@ module.exports =
     app.post '/text', coreCtrl.text
     app.post '/system/:cmd', coreCtrl.system
 
-    app.post '/mouse/moveRelative', xdoCtrl.moveRelative
-    app.post '/mouse/leftClick', xdoCtrl.leftClick
-    app.post '/mouse/rightClick', xdoCtrl.rightClick
-    app.post '/mouse/doubleClick', xdoCtrl.doubleClick
+    app.post '/mouse/moveRelative', xdoCtrl.moveRelative.bind(xdoCtrl)
+    app.post '/mouse/leftClick', xdoCtrl.leftClick.bind(xdoCtrl)
+    app.post '/mouse/rightClick', xdoCtrl.rightClick.bind(xdoCtrl)
+    app.post '/mouse/doubleClick', xdoCtrl.doubleClick.bind(xdoCtrl)
 
     app.post '/netflix/search', netflixCtrl.search
