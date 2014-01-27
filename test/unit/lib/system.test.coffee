@@ -10,13 +10,13 @@ describe "System", ->
 
     describe "when setting arbitrary values", ->
       it "should set a value between 0 and 100", ->
-        result = system.setVolume level: 80
+        result = system.setVolume 80
         expect(result).to.equal "pactl set-sink-volume 0 -- 80%"
 
       it "should convert negatives to 0", ->
-        result = system.setVolume level: -20
+        result = system.setVolume -20
         expect(result).to.equal "pactl set-sink-volume 0 -- 0%"
 
       it "should convert values over 100 to 100", ->
-        result = system.setVolume level: 101
+        result = system.setVolume 101
         expect(result).to.equal "pactl set-sink-volume 0 -- 100%"

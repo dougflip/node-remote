@@ -7,8 +7,8 @@ module.exports =
   mute: ->
     buildVolumeCmd 0
 
-  setVolume: (options) ->
-    buildVolumeCmd options.level
+  setVolume: (level) ->
+    buildVolumeCmd level
 
   suspend: ->
     'dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend'
