@@ -6,6 +6,7 @@ body{
 	margin: 0;
 	padding: 0;
 	height: 100%;
+	font: 100% Arial, Helvetica, sans-serif;
 }
 
 img{
@@ -26,24 +27,31 @@ h1, h2, h3, h4{
 
 .system--logo{
 	float: left;
+	color: #47493e;
+}
+
+img.logo {
+	float: left;
+	width: 11%;
 }
 
 .system--search{
 	float: right;
-	width: 60%;
+	width: 50%;
 }
 
 .system--search-term{
-	width: 100%;
+	float: right;
+	width: 98%;
 }
 
 .system--col{
 	float: left;
-	width:45%;
+	width:50%;
 }
 
 .system--volume-level{
-	max-width: 4em;
+	max-width: 15%;
 }
 
 .system button{
@@ -187,3 +195,28 @@ h1, h2, h3, h4{
 	height: 100%;
 	text-transform: uppercase;
 }
+
+.single-button {
+	width: 100%;
+}
+
+.button-right {
+	width: 80%;
+	float: right;
+}
+
+.input-left {
+	height: 22px;
+	margin-top: 1px;
+}
+
+
+
+
+
+
+
+
+
+
+

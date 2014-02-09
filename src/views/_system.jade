@@ -1,24 +1,25 @@
 div.section-header.clearfix
+  img(src="images/node-logo.png").logo
   h3.system--logo
-    | Node Remote
+    | Remote
   .system--search
     +browserForm
       input.system--search-term(type="text", name="url", placeholder="Launch Chrome...")
 
 .clearfix
   .system--col
-    +keyboardShort("Close Window", "press:Alt_L press:F4 release:F4 release:Alt_L")
+    +keyboardShort("Close Window", "press:Alt_L press:F4 release:F4 release:Alt_L", "single-button")
 
   .system--col
     form(action="/system/suspend", method="post")
-        button(type="submit") suspend
+        button(type="submit").single-button suspend
 
 .clearfix
   .system--col
     form(action="/system/setVolume", method="post")
-      input.system--volume-level(type="number", value="50", name="options[level]")
-      button(type="submit") volume
+      input.system--volume-level(type="number", value="50", name="options[level]").input-left
+      button(type="submit").button-right volume
 
   .system--col
     form(action="/system/mute", method="post")
-      button(type="submit") mute
+      button(type="submit").single-button mute
