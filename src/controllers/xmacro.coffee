@@ -1,15 +1,15 @@
-xmacroDefault    = require '../lib/xmacroplay'
-Commander        = require '../lib/commander'
+XMacroPlay    = require '../lib/xmacroplay'
+Commander     = require '../lib/commander'
 
 class XMacroCtrl
-  constructor: (@xmacro = xmacroDefault, @commander = new Commander) ->
+  constructor: (@xmacroplay = new XMacroPlay, @commander = new Commander) ->
 
   keys: (req, res) ->
-    @commander.exec @xmacro.keyStr(req.body.keys)
+    @commander.exec @xmacroplay.keyStr(req.body.keys)
     res.redirect "/"
 
   text: (req, res) ->
-    @commander.exec @xmacro.string(req.body.text)
+    @commander.exec @xmacroplay.string(req.body.text)
     res.redirect "/"
 
 module.exports = XMacroCtrl

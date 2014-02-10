@@ -1,7 +1,11 @@
 expect        = require('chai').expect
-xmacroplay    = require '../../../src/lib/xmacroplay'
+XMacroPlay    = require '../../../src/lib/xmacroplay'
 
 describe "XMacroPlay", ->
+  xmacroplay = null
+
+  beforeEach ->
+    xmacroplay = new XMacroPlay
 
   describe "when guarding against improper commands", ->
     it "should return null for undefined input", ->
