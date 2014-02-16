@@ -7,9 +7,7 @@ commander = new Commander
 browser = new Browser
 
 module.exports = 
-	search: (req, res) ->
-		url = BASE_SEARCH_URL + encodeURIComponent(req.body.searchTerm)
-		commander.exec(
-      browser.buildCommand(url, browserFlags)
-    )
+  search: (req, res) ->
+    url = BASE_SEARCH_URL + encodeURIComponent(req.body.searchTerm)
+    commander.exec(browser.buildCommand(url, browserFlags))
     res.redirect "/"
