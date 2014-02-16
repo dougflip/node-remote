@@ -1,8 +1,8 @@
-systemDefault = require '../lib/system'
-Commander     = require '../lib/commander'
+System    = require '../lib/system'
+Commander = require '../lib/commander'
 
 class SystemCtrl
-  constructor: (@system = systemDefault, @commander = new Commander) ->
+  constructor: (@system = new System, @commander = new Commander) ->
 
   mute: (req, res) ->
     @commander.exec @system.mute()

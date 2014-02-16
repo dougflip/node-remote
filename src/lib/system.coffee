@@ -1,9 +1,4 @@
-buildVolumeCmd = (level) ->
-  level = 0 if level < 0
-  level = 100 if level > 100
-  "pactl set-sink-volume 0 -- #{level}%"
-
-module.exports =
+class System
   mute: ->
     buildVolumeCmd 0
 
@@ -12,3 +7,10 @@ module.exports =
 
   suspend: ->
     'dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend'
+
+  buildVolumeCmd = (level) ->
+    level = 0 if level < 0
+    level = 100 if level > 100
+    "pactl set-sink-volume 0 -- #{level}%"
+
+module.exports = System
