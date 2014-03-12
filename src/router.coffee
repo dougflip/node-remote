@@ -21,7 +21,6 @@ module.exports =
     app.post '/browser/zoomOut', browserCtrl.zoomOut.bind(browserCtrl)
     app.post '/browser/actualSize', browserCtrl.actualSize.bind(browserCtrl)
 
-    app.post '/browser', coreCtrl.browser
     app.post '/keys', xmacroCtrl.keys.bind(xmacroCtrl)
     app.post '/text', xmacroCtrl.text.bind(xmacroCtrl)
 

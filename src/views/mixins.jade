@@ -4,5 +4,5 @@ mixin keyboardShort(name, key, buttonClass)
      button(type="submit" class=buttonClass || "") #{name}
 
 mixin browserForm()
-  form(action="/browser", method="post")
+  form(action="/browser/launch", method="post")
     block
