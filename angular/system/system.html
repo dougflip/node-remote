@@ -1,1 +1,9 @@
 System view...
+
+<button class="btn btn-danger" ng-click="systemCtrl.suspend()">suspend</button>
+
+<form ng-submit="systemCtrl.setVolume()">
+  <input ng-model="systemCtrl.volume" placeholder="volume">
+</form>
+
+<button class="btn" ng-click="systemCtrl.mute()">mute</button>
