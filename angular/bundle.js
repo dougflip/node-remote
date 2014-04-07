@@ -23,7 +23,8 @@ module.exports = function($stateProvider, $urlRouterProvider){
 
   $stateProvider.state('system', {
     url: '/system',
-    template: '/system/system.html'
+    templateUrl: '/system/system.html',
+    controller: 'systemCtrl as systemCtrl'
   });
 };
 
