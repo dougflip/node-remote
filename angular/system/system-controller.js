@@ -7,7 +7,7 @@ SystemCtrl.prototype.mute = function(){
   return this.systemService.mute();
 }
 
-SystemCtrl.prototype.setVolume = function(level){
+SystemCtrl.prototype.setVolume = function(){
   return this.systemService.setVolume(this.volume);
 };
 
