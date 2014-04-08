@@ -1,28 +1,29 @@
 function BrowserController(browserService){
   this.browserService = browserService;
+  this.launchUrl = null;
 }
 
-BrowserController.prototype.launch = function(url){
-  this.browserService.launch(url);
+BrowserController.prototype.launch = function(){
+  this.browserService.launch(this.launchUrl);
 };
 
-BrowserController.prototype.closeTab = function(url){
+BrowserController.prototype.closeTab = function(){
   this.browserService.closeTab();
 };
 
-BrowserController.prototype.nextTab = function(url){
+BrowserController.prototype.nextTab = function(){
   this.browserService.nextTab();
 };
 
-BrowserController.prototype.zoomIn = function(url){
+BrowserController.prototype.zoomIn = function(){
   this.browserService.zoomIn();
 };
 
-BrowserController.prototype.zoomOut = function(url){
+BrowserController.prototype.zoomOut = function(){
   this.browserService.zoomOut();
 };
 
-BrowserController.prototype.actualSize = function(url){
+BrowserController.prototype.actualSize = function(){
   this.browserService.actualSize();
 };
 

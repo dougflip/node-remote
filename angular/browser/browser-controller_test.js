@@ -23,7 +23,8 @@ describe('BrowserController', function(){
   describe('when calling launch', function(){
     it('should pass through to the service', function(){
       spyOn(browserServiceMock, 'launch');
-      sut.launch('url');
+      sut.launchUrl = 'url';
+      sut.launch();
       expect(browserServiceMock.launch).toHaveBeenCalledWith('url');
     });
   });
