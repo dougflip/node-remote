@@ -11,4 +11,6 @@ var nodeRemote = ng.module('nodeRemote', [
 
 nodeRemote.config(
   require('./routing')
-)
+);
+
+module.exports = nodeRemote;
