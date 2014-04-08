@@ -15,7 +15,7 @@ describe('SystemController', function(){
   }));
 
   beforeEach(mocks.inject(function($controller){
-    sut = $controller('systemCtrl')
+    sut = $controller('systemCtrl');
   }));
 
   describe('post construction', function(){
