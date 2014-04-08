@@ -1,3 +1,13 @@
 <form ng-submit="browserCtrl.launch()">
   <input ng-model="browserCtrl.launchUrl" placeholder="ex. www.google.com" />
 </form>
+
+<button ng-click="browserCtrl.closeTab()">close tab</button>
+
+<button ng-click="browserCtrl.nextTab()">next tab</button>
+
+<button ng-click="browserCtrl.zoomIn()">zoom in</button>
+
+<button ng-click="browserCtrl.zoomOut()">zoom out</button>
+
+<button ng-click="browserCtrl.actualSize()">actual size</button>

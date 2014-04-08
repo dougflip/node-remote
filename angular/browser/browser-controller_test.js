@@ -26,6 +26,7 @@ describe('BrowserController', function(){
       sut.launchUrl = 'url';
       sut.launch();
       expect(browserServiceMock.launch).toHaveBeenCalledWith('url');
+      expect(sut.launchUrl).toBeNull();
     });
   });
 

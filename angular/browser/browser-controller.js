@@ -5,6 +5,7 @@ function BrowserController(browserService){
 
 BrowserController.prototype.launch = function(){
   this.browserService.launch(this.launchUrl);
+  this.launchUrl = null;
 };
 
 BrowserController.prototype.closeTab = function(){

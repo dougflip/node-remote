@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git://github.com/dougflip/node-remote.git"
   },
+  "scripts":{
+    "build:client": " browserify angular/node-remote.js -o angular/bundle.js"
+  },
   "author": "Doug DiFilippo (dougflip)",
   "license": "MIT",
   "bugs": {
