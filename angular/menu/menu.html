@@ -1,7 +1,8 @@
-<nav ng-controller="menuCtrl as menuCtrl">
-  <ul class="main-nav">
-    <li><a ui-sref="system">system</a></li>
-    <li><a ui-sref="browser">browser</a></li>
-    <li><a ui-sref="netflix">netflix</a></li>
+<nav class="main-nav" ng-class="{ 'is-open': menuCtrl.menuIsOpen }" ng-controller="menuCtrl as menuCtrl">
+  <button ng-click="menuCtrl.closeMenu()">close</button>
+  <ul>
+    <li><a ng-click="menuCtrl.closeMenu()" ui-sref="system">system</a></li>
+    <li><a ng-click="menuCtrl.closeMenu()" ui-sref="browser">browser</a></li>
+    <li><a ng-click="menuCtrl.closeMenu()" ui-sref="netflix">netflix</a></li>
   </ul>
 </nav>

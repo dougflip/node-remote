@@ -1,4 +1,4 @@
-<header>
-  <button>menu</button>
+<header ng-controller="headerCtrl as headerCtrl">
+  <button ng-click="headerCtrl.openMainMenu()">menu</button>
   <input ng-model="volume" placeholder="volume..." />
 </header>

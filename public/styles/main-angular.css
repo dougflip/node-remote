@@ -1,0 +1,13 @@
+.main-nav{
+  width: 25%;
+  position: absolute;
+  top: 0;
+  left: -25%;
+  background-color: #999;
+  height: 100%;
+  transition: all 0.5s;
+}
+
+.main-nav.is-open{
+  left: 0;
+}
