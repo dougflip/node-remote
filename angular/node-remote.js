@@ -6,7 +6,8 @@ var nodeRemote = ng.module('nodeRemote', [
   require('./header').name,
   require('./menu').name,
   require('./netflix').name,
-  require('./system').name
+  require('./system').name,
+  require('./trackpad').name
 ]);
 
 nodeRemote.config(
