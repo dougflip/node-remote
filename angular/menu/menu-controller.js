@@ -1,6 +1,9 @@
 function MenuController($rootScope){
   this.menuIsOpen = false;
-  $rootScope.$on('menu:open', this.openMenu.bind(this));
+  var self = this;
+  $rootScope.$on('menu:open', function(){
+    self.openMenu();
+  });
 }
 
 MenuController.prototype.openMenu = function(){
