@@ -1,5 +1,5 @@
 describe('SystemController', function(){
-  var mocks = require('../angular-mock');
+  var mocks = require('angular-mock');
   var sut, systemServiceMock;
 
   beforeEach(mocks.module(require('../node-remote').name));

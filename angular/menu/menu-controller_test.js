@@ -1,5 +1,5 @@
 describe('MenuController', function(){
-  var mocks = require('../angular-mock');
+  var mocks = require('angular-mock');
   var sut, rootScope;
 
   beforeEach(mocks.module(require('../node-remote').name));

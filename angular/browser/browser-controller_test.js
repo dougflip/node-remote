@@ -1,5 +1,5 @@
 describe('BrowserController', function(){
-  var mocks = require('../angular-mock');
+  var mocks = require('angular-mock');
   var sut, browserServiceMock;
 
   beforeEach(mocks.module(require('../node-remote').name));

@@ -1,6 +1,6 @@
 describe('SystemService', function(){
+  var mocks = require('angular-mock');
   var nodeRemote = require('../node-remote');
-  var mocks = require('../angular-mock');
   var sut, $httpBackend;
 
   beforeEach(mocks.module(nodeRemote.name));

@@ -1,5 +1,5 @@
 describe('BrowserService', function(){
-  var mocks = require('../angular-mock');
+  var mocks = require('angular-mock');
   var nodeRemote = require('../node-remote');
   var sut, $httpBackend;
 

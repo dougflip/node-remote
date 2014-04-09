@@ -1,4 +1,4 @@
-var ng = require('./angular');
+var ng = require('angular');
 
 var nodeRemote = ng.module('nodeRemote', [
   'ui.router',

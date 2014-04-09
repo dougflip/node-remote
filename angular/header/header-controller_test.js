@@ -1,5 +1,5 @@
 describe('HeaderController', function(){
-  var mocks = require('../angular-mock');
+  var mocks = require('angular-mock');
   var sut, rootScopeMock;
 
   beforeEach(mocks.module(require('../node-remote').name));
