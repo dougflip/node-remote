@@ -16,5 +16,9 @@ module.exports = function($stateProvider, $urlRouterProvider){
       url: '/system',
       templateUrl: '/system/system.html',
       controller: 'systemCtrl as systemCtrl'
+    })
+    .state('trackpad', {
+      url: '/trackpad',
+      templateUrl: '/trackpad/trackpad.html'
     });
 };
