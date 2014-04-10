@@ -1,8 +1,12 @@
 <section class="trackpad">
-  <div class="touchpad"></div>
+  <div class="trackpad--touchpad" hm-drag="trackpadCtrl.onTrackDrag($event)" hm-touch="trackpadCtrl.onTrackTouchStart($event)"></div>
   <div class="trackpad--buttons">
     <div class="trackpad--left"></div>
     <div class="trackpad--double"></div>
     <div class="trackpad--right"></div>
   </div>
+
+  <input ng-model="trackpadCtrl.deltaX">
+  <input ng-model="trackpadCtrl.deltaY">
+
 </section>

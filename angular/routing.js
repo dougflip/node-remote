@@ -19,6 +19,7 @@ module.exports = function($stateProvider, $urlRouterProvider){
     })
     .state('trackpad', {
       url: '/trackpad',
-      templateUrl: '/trackpad/trackpad.html'
+      templateUrl: '/trackpad/trackpad.html',
+      controller: 'trackpadCtrl as trackpadCtrl'
     });
 };

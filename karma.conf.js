@@ -18,6 +18,8 @@ module.exports = function(config) {
       'public/bowercomponents/angular/angular.js',
       'public/bowercomponents/angular-ui-router/release/angular-ui-router.js',
       'public/bowercomponents/angular-mocks/angular-mocks.js',
+      'public/bowercomponents/hammerjs/hammer.min.js',
+      'public/bowercomponents/angular-hammer/angular-hammer.js',
       'angular/**/*_test.js'
     ],
 
