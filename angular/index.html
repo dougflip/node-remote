@@ -10,12 +10,14 @@
 </head>
 <body ng-app="nodeRemote">
 
-  <!-- TODO: Use named views -->
-  <section ng-include="'/header/header.html'"></section>
+  <div class="container">
+    <!-- TODO: Use named views -->
+    <section class="header" ng-include="'/header/header.html'"></section>
 
-  <section ng-include="'/menu/menu.html'"></section>
+    <section ng-include="'/menu/menu.html'"></section>
 
-  <section class="main-content" ui-view></section>
+    <section class="main-content" ui-view></section>
+  </div>
 
   <script type="text/javascript" src="/bowercomponents/angular/angular.js"></script>
   <script type="text/javascript" src="/bowercomponents/angular-ui-router/release/angular-ui-router.js"></script>

@@ -1,4 +1,15 @@
-<header ng-controller="headerCtrl as headerCtrl">
-  <button ng-click="headerCtrl.openMainMenu()">menu</button>
-  <input ng-model="volume" placeholder="volume..." />
+<header class="row header--row" ng-controller="headerCtrl as headerCtrl">
+  <div class="col-xs-3">
+    <button class="btn btn-primary btn-lg" ng-click="headerCtrl.openMainMenu()">
+      <span class="glyphicon glyphicon-th-list"></span>
+    </button>
+  </div>
+  <div class="col-xs-6">
+    <img class="header--logo" src="images/node-logo.png" />
+  </div>
+  <div class="col-xs-3 content-right">
+    <button type="button" class="btn btn-warning btn-lg">
+      <span class="glyphicon glyphicon-volume-off"></span>
+    </button>
+  </div>
 </header>
