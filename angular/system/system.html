@@ -1,9 +1,14 @@
-<section class="system-container">
-  <button class="btn btn-danger" ng-click="systemCtrl.suspend()">suspend</button>
+<section class="row system-container">
+  <div class="col-xs-12">
+    <button class="btn btn-danger" ng-click="systemCtrl.suspend()">
+      <span class="glyphicon glyphicon-exclamation-sign"></span>
+      suspend
+    </button>
 
-  <form ng-submit="systemCtrl.setVolume()">
-    <input ng-model="systemCtrl.volume" placeholder="volume">
-  </form>
+    <form ng-submit="systemCtrl.setVolume()">
+      <input ng-model="systemCtrl.volume" placeholder="volume">
+    </form>
 
-  <button class="btn" ng-click="systemCtrl.mute()">mute</button>
+    <button class="btn" ng-click="systemCtrl.mute()">mute</button>
+  </div>
 </section>
