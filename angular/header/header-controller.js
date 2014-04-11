@@ -1,9 +1,14 @@
-function HeaderController($rootScope){
+function HeaderController($rootScope, systemService){
   this.rootScope = $rootScope;
+  this.systemService = systemService;
 }
 
 HeaderController.prototype.openMainMenu = function(){
   this.rootScope.$emit('menu:open');
 };
 
-module.exports = ['$rootScope', HeaderController];
+HeaderController.prototype.mute = function(){
+  this.systemService.mute();
+};
+
+module.exports = ['$rootScope', 'systemService', HeaderController];
