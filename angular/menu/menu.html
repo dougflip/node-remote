@@ -1,9 +1,13 @@
 <nav class="main-nav" ng-class="{ 'is-open': menuCtrl.menuIsOpen }" ng-controller="menuCtrl as menuCtrl">
-  <button ng-click="menuCtrl.closeMenu()">close</button>
-  <ul>
-    <li><a ng-click="menuCtrl.closeMenu()" ui-sref="system">system</a></li>
-    <li><a ng-click="menuCtrl.closeMenu()" ui-sref="browser">browser</a></li>
-    <li><a ng-click="menuCtrl.closeMenu()" ui-sref="netflix">netflix</a></li>
-    <li><a ng-click="menuCtrl.closeMenu()" ui-sref="trackpad">trackpad</a></li>
+  <div class="main-nav--close-container">
+    <button ng-click="menuCtrl.closeMenu()" class="btn">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
+  </div>
+  <ul class="nav nav-pills nav-stacked main-nav--item-container">
+    <li ng-class="{active: menuCtrl.activeItem == '/system'}"><a ng-click="menuCtrl.closeMenu()" ui-sref="system">system</a></li>
+    <li ng-class="{active: menuCtrl.activeItem == '/browser'}"><a ng-click="menuCtrl.closeMenu()" ui-sref="browser">browser</a></li>
+    <li ng-class="{active: menuCtrl.activeItem == '/netflix'}"><a ng-click="menuCtrl.closeMenu()" ui-sref="netflix">netflix</a></li>
+    <li ng-class="{active: menuCtrl.activeItem == '/trackpad'}"><a ng-click="menuCtrl.closeMenu()" ui-sref="trackpad">trackpad</a></li>
   </ul>
 </nav>

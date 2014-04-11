@@ -19,13 +19,26 @@
   position: absolute;
   top: 0;
   left: -50%;
-  background-color: #999;
+  background-color: #333;
   height: 100%;
-  transition: all 0.3s;
+  transition: all 0.25s;
+
+  -webkit-box-shadow: 8px 0 15px -7px black;
+     -moz-box-shadow: 8px 0 15px -7px black;
+          box-shadow: 8px 0 15px -7px black;
 }
 
 .main-nav.is-open{
   left: 0;
+}
+
+.main-nav--close-container{
+  text-align: right;
+  padding-bottom: 15px;
+}
+
+.main-nav--item-container li{
+
 }
 
 .trackpad--touchpad{

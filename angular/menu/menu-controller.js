@@ -1,9 +1,17 @@
-function MenuController($rootScope){
+function MenuController($rootScope, $location){
   this.menuIsOpen = false;
   var self = this;
   $rootScope.$on('menu:open', function(){
     self.openMenu();
   });
+  $rootScope.$on('$locationChangeSuccess', function(){
+    self.setActiveItem($location.path());
+  });
+  this.setActiveItem($location.path())
+}
+
+MenuController.prototype.setActiveItem = function(item){
+  this.activeItem = item;
 }
 
 MenuController.prototype.openMenu = function(){
@@ -14,4 +22,4 @@ MenuController.prototype.closeMenu = function(){
   this.menuIsOpen = false;
 };
 
-module.exports = ['$rootScope', MenuController];
+module.exports = ['$rootScope', '$location', MenuController];
