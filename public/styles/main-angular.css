@@ -1,6 +1,13 @@
+html, body, .container {
+  height: 100%;
+}
+
+.header{
+  height: 10%;
+}
+
 .header--row{
   background-color: #666;
-  margin-bottom: 2em;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -37,8 +44,14 @@
   padding-bottom: 15px;
 }
 
-.main-nav--item-container li{
+.main-content{
+  width: 100%;
+  height: 90%;
+}
 
+.system-container{
+  height: 100%;
+  background-color: #efefef;
 }
 
 .trackpad--touchpad{
