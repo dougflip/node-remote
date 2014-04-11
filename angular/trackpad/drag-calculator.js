@@ -12,8 +12,8 @@ DragCalculator.prototype.setPrevious = function(touch){
 
 DragCalculator.prototype.calculateDrag = function(touch){
   var result = {
-    deltaX: touch.clientX - this.previous.x,
-    deltaY: touch.clientY - this.previous.y
+    deltaX: (touch.clientX - this.previous.x) * 2,
+    deltaY: (touch.clientY - this.previous.y) * 2
   };
   this.setPrevious(touch);
 
