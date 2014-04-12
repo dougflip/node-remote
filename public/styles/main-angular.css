@@ -56,6 +56,14 @@ html, body, .container {
   background-color: #efefef;
 }
 
+.system--volume-btn{
+  display: block;
+}
+
+.system--volume-up{
+  margin-bottom: 10px;
+}
+
 .trackpad--touchpad{
   width: 300px;
   height: 300px;

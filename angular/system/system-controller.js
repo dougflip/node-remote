@@ -1,18 +1,23 @@
+var ng = require('angular');
+
 function SystemCtrl(systemService){
   this.systemService = systemService;
-  this.volume = this.systemService.volume;
 }
 
-SystemCtrl.prototype.mute = function(){
-  return this.systemService.mute();
-}
+SystemCtrl.prototype.setVolume = function(level){
+  this.systemService.setVolume(0 + level);
+};
 
-SystemCtrl.prototype.setVolume = function(){
-  return this.systemService.setVolume(this.volume);
+SystemCtrl.prototype.volumeUp = function(){
+  this.setVolume(this.systemService.volume + 10);
+};
+
+SystemCtrl.prototype.volumeDown = function(){
+  this.setVolume(this.systemService.volume - 10);
 };
 
 SystemCtrl.prototype.suspend = function(){
-  return this.systemService.suspend();
-}
+  this.systemService.suspend();
+};
 
 module.exports = ['systemService', SystemCtrl];

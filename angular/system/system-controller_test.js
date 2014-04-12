@@ -22,14 +22,6 @@ describe('SystemController', function(){
     it('should intialize volume to the system service volume', function(){
       expect(sut.volume).toEqual(10);
     });
-  })
-
-  describe('when muting', function(){
-    it('it should call through to the system service', function(){
-      spyOn(systemServiceMock, 'mute');
-      sut.mute();
-      expect(systemServiceMock.mute).toHaveBeenCalled();
-    });
   });
 
   describe('when setting volume', function(){
