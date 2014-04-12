@@ -53,7 +53,16 @@ html, body, .container {
 
 .system-container{
   height: 100%;
-  background-color: #efefef;
+  padding-top: 15px;
+}
+
+.system-container hr{
+  margin-bottom: 15px 0;
+}
+
+.system--volumeValue{
+  font-size: 2em;
+  width: 100%;
 }
 
 .system--volume-btn{

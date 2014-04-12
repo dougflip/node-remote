@@ -1,21 +1,32 @@
-<section class="row system-container">
-  <div class="col-xs-6">
-    <form ng-submit="systemCtrl.setVolume(systemCtrl.systemService.volume)">
-      <input ng-model="systemCtrl.systemService.volume" placeholder="volume">
-    </form>
+<section class="system-container">
+  <div class="row">
+    <div class="col-xs-6">
+      <button class="btn btn-lg" ng-click="systemCtrl.closeWindow()">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+        close window
+      </button>
+    </div>
+    <div class="col-xs-6">
+      <button class="btn btn-danger btn-lg" ng-click="systemCtrl.suspend()">
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        suspend
+      </button>
+    </div>
   </div>
-  <div class="col-xs-6">
-    <button class="btn btn-lg system--volume-btn system--volume-up" ng-click="systemCtrl.volumeUp()">
-      <span class="glyphicon glyphicon-arrow-up"></span>
-    </button>
-    <button class="btn btn-lg system--volume-btn" ng-click="systemCtrl.volumeDown()">
-      <span class="glyphicon glyphicon-arrow-down"></span>
-    </button>
-  </div>
-  <div class="col-xs-12">
-    <button class="btn btn-danger" ng-click="systemCtrl.suspend()">
-      <span class="glyphicon glyphicon-exclamation-sign"></span>
-      suspend
-    </button>
+  <hr />
+  <div class="row">
+    <div class="col-xs-6">
+      <form ng-submit="systemCtrl.setVolume(systemCtrl.volume)">
+        <input class="system--volumeValue" ng-model="systemCtrl.volume" placeholder="volume">
+      </form>
+    </div>
+    <div class="col-xs-6">
+      <button class="btn btn-lg system--volume-btn system--volume-up" ng-click="systemCtrl.setVolume(systemCtrl.volume + 10)">
+        <span class="glyphicon glyphicon-arrow-up"></span>
+      </button>
+      <button class="btn btn-lg system--volume-btn" ng-click="systemCtrl.setVolume(systemCtrl.volume - 10)">
+        <span class="glyphicon glyphicon-arrow-down"></span>
+      </button>
+    </div>
   </div>
 </section>
