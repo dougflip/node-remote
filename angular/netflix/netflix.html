@@ -1,1 +1,42 @@
-Netflix view...
+<section class="content-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form ng-submit="netflixCtrl.search(netflixCtrl.searchQuery)">
+        <input ng-model="netflixCtrl.searchQuery" class="form-control" placeholder="search netflix..." />
+      </form>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-xs-6">
+      <button ng-click="netflixCtrl.fullScreen()" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-fullscreen"></span>
+        full screen
+      </button>
+    </div>
+    <div class="col-xs-6">
+      <button ng-click="netflixCtrl.exitFullScreen()" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-resize-small"></span>
+        exit full
+      </button>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-xs-12">
+      <button ng-click="netflixCtrl.togglePlayPause()" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-play"></span>
+        /
+        <span class="glyphicon glyphicon-pause"></span>
+      </button>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <div ng-repeat="item in netflixCtrl.media" class="col-xs-6 row-spacer">
+      <button ng-click="netflixCtrl.launchMedia(item.id)" class="btn btn-lg btn-primary">
+        <img ng-src="{{ item.imageUrl }}" />
+      </button>
+    </div>
+  </div>
+</div>

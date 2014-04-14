@@ -2,11 +2,17 @@ html, body, .container {
   height: 100%;
 }
 
+img{
+  width: 100%;
+  height: auto;
+}
+
 .header--row{
-  position: absolute;
+  position: fixed;
   background-color: #666;
   height: 65px;
   padding: 10px initial;
+  z-index: 1;
 
   /* Fixed position pulls this from the flow so kill bootstrap negative margin */
   margin-right: 0;
@@ -23,7 +29,7 @@ html, body, .container {
 
 .main-nav{
   width: 50%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -50%;
   z-index: 1;
