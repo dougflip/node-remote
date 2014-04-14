@@ -5,6 +5,7 @@ var nodeRemote = ng.module('nodeRemote', [
   'hmTouchEvents',
   require('./browser').name,
   require('./header').name,
+  require('./lib').name,
   require('./menu').name,
   require('./netflix').name,
   require('./system').name,

@@ -1,24 +1,19 @@
 var ng           = require('angular');
-var EventEmitter = require('events').EventEmitter;
 
 var EVT_VOLUME_CHANGE = 'system:volumeChange';
 
-function SystemService($http, eventEmitter){
+function SystemService($http, Events){
   this.volume = 50;
   this.http = $http;
-  this.eventEmitter = eventEmitter || new EventEmitter();
+  this.events = new Events();
 }
 
 SystemService.prototype.onVolumeChange = function(scope, cb){
-  this.eventEmitter.on(EVT_VOLUME_CHANGE, cb);
-  var self = this;
-  scope.$on('$destroy', function(){
-    self.eventEmitter.removeListener(EVT_VOLUME_CHANGE, cb);
-  });
+  this.events.on(EVT_VOLUME_CHANGE, scope, cb);
 };
 
 SystemService.prototype.emitVolumeChange = function(){
-  this.eventEmitter.emit(EVT_VOLUME_CHANGE, { volume: this.volume });
+  this.events.emitter.emit(EVT_VOLUME_CHANGE, { volume: this.volume });
 };
 
 SystemService.prototype.mute = function(){
@@ -63,4 +58,4 @@ function parseNewLevel(level){
   return level;
 }
 
-module.exports = ['$http', SystemService];
+module.exports = ['$http', 'Events', SystemService];

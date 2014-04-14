@@ -11,7 +11,6 @@ function SystemCtrl($scope, systemService){
 }
 
 SystemCtrl.prototype.onVolumeChange = function(evt){
-  console.log('volume change', evt.volume);
   this.volume = evt.volume;
 }
 
