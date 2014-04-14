@@ -9,6 +9,8 @@ describe('NetflixCtrl', function(){
       sendKeys: new Function()
     };
     netflixServiceMock = {
+      media: [ 'one', 'two' ],
+      search: new Function(),
       launchMedia: new Function()
     };
     $provide.value('keyboardService', keyboardServiceMock);
@@ -19,7 +21,19 @@ describe('NetflixCtrl', function(){
     sut = $controller('netflixCtrl');
   }));
 
+  describe('after construction', function(){
+    it('should load the media array from the service', function(){
+      expect(sut.media).toEqual(['one', 'two']);
+    });
+  });
+
   describe('when calling search', function(){
+    it('should call through to the service', function(){
+      spyOn(netflixServiceMock, 'search');
+      sut.search('the office');
+      expect(netflixServiceMock.search).toHaveBeenCalledWith('the office');
+    });
+
     it('should clear the search query', function(){
       sut.searchQuery = 'something';
       sut.search('the office');

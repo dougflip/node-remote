@@ -9,6 +9,14 @@ describe('NetflixService', function(){
     $httpBackend = _$httpBackend_;
   }));
 
+  describe('when calling search', function(){
+    it('should call the correct API end point', function(){
+      $httpBackend.expectPOST('/netflix/search', { searchTerm: 'the office' }).respond(200);
+      sut.search('the office');
+      $httpBackend.flush();
+    });
+  });
+
   describe('when calling launchMedia', function(){
     it('should call the correct API end point', function(){
       $httpBackend.expectPOST('/browser/launch', {
