@@ -51,13 +51,17 @@ html, body, .container {
   padding-top: 65px;
 }
 
-.system-container{
+.main-content hr{
+  margin-bottom: 15px 0;
+}
+
+.content-container{
   height: 100%;
   padding-top: 15px;
 }
 
-.system-container hr{
-  margin-bottom: 15px 0;
+.row-spacer{
+  margin-bottom: 15px;
 }
 
 .system--volumeValue{
