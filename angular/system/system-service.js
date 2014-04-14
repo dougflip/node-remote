@@ -34,8 +34,7 @@ SystemService.prototype.setVolume = function(level){
 };
 
 SystemService.prototype.closeWindow = function(){
-  console.log('closing the window...');
-  return this.http.post('/system/closeWindow');
+  return this.http.post('/keys', { keys: 'press:Alt_L press:F4 release:F4 release:Alt_L' });
 };
 
 SystemService.prototype.suspend = function(){

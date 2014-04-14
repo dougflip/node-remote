@@ -92,7 +92,7 @@ describe('SystemService', function(){
 
   describe('when calling closeWindow', function(){
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/system/closeWindow').respond(200);
+      $httpBackend.expectPOST('/keys', { keys: 'press:Alt_L press:F4 release:F4 release:Alt_L' }).respond(200);
       sut.closeWindow();
       $httpBackend.flush();
     });
