@@ -9,12 +9,12 @@ function SystemService($http, eventEmitter){
   this.eventEmitter = eventEmitter || new EventEmitter();
 }
 
-SystemService.prototype.onVolumeChange = function(cb){
+SystemService.prototype.onVolumeChange = function(scope, cb){
   this.eventEmitter.on(EVT_VOLUME_CHANGE, cb);
-};
-
-SystemService.prototype.removeVolumeChange = function(cb){
-  this.eventEmitter.removeListener(EVT_VOLUME_CHANGE, cb);
+  var self = this;
+  scope.$on('$destroy', function(){
+    self.eventEmitter.removeListener(EVT_VOLUME_CHANGE, cb);
+  });
 };
 
 SystemService.prototype.emitVolumeChange = function(){

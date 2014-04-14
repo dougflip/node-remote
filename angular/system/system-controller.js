@@ -4,15 +4,15 @@ function SystemCtrl($scope, systemService){
   this.systemService = systemService;
   this.volume = this.systemService.volume;
 
-  var self = this;
-  this.onVolumeChange = function(evt){
-    self.volume = evt.volume;
-  };
-  this.systemService.onVolumeChange(this.onVolumeChange);
-  
-  $scope.$on('$destroy', function(){
-    self.systemService.removeVolumeChange(self.onVolumeChange);
-  });
+  this.systemService.onVolumeChange(
+    $scope,
+    ng.bind(this, this.onVolumeChange)
+  );
+}
+
+SystemCtrl.prototype.onVolumeChange = function(evt){
+  console.log('volume change', evt.volume);
+  this.volume = evt.volume;
 }
 
 SystemCtrl.prototype.setVolume = function(level){
