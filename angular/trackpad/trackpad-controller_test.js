@@ -1,6 +1,6 @@
 describe('TrackpadController', function(){
   var mocks = require('angular-mock');
-  var sut, DragCalculatorMock, trackpadServiceMock, evtMock;
+  var sut, DragCalculatorMock, trackpadServiceMock, keyboardServiceMock, evtMock;
 
   beforeEach(mocks.module(require('../node-remote').name));
 
@@ -14,7 +14,10 @@ describe('TrackpadController', function(){
       leftClick: new Function(),
       doubleClick: new Function(),
       rightClick: new Function()
-    }
+    };
+    keyboardServiceMock = {
+      sendText: new Function()
+    };
     evtMock = {
       gesture: {
         preventDefault: new Function(),
@@ -23,11 +26,26 @@ describe('TrackpadController', function(){
 
     $provide.value('DragCalculator', DragCalculatorMock);
     $provide.value('trackpadService', trackpadServiceMock);
+    $provide.value('keyboardService', keyboardServiceMock);
   }));
 
   beforeEach(mocks.inject(function($controller){
     sut = $controller('trackpadCtrl');
   }));
+
+  describe('when calling sendText', function(){
+    it('should clear the text property', function(){
+      sut.text = 'something';
+      sut.sendText('something');
+      expect(sut.text).toBeNull();
+    });
+
+    it('should call through to the keyboard service', function(){
+      spyOn(keyboardServiceMock, 'sendText');
+      sut.sendText('text!');
+      expect(keyboardServiceMock.sendText).toHaveBeenCalledWith('text!');
+    });
+  });
 
   describe('when onTrackTouchStart fires', function(){
     it('should set the initial drag coordinates', function(){

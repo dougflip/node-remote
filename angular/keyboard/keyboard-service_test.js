@@ -16,4 +16,12 @@ describe('KeyboardService', function(){
       $httpBackend.flush();
     });
   });
+
+  describe('when calling sendText', function(){
+    it('should post to the correct API endpoint', function(){
+      $httpBackend.expectPOST('/text', { text: 'something!' }).respond(200);
+      sut.sendText('something!');
+      $httpBackend.flush();
+    });
+  });
 });
