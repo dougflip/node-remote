@@ -1,3 +1,3 @@
 exports.config = {
-  specs:['angular/e2e/**/*_e2e.js']  
+  specs:['e2e/**/*_e2e.js']  
 };
