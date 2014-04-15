@@ -22,7 +22,7 @@ HeaderModule.prototype.mainMenuButton = function(){
 function MenuModule(){}
 
 MenuModule.prototype.getLinkAt = function(index){
-  return element.all(by.css('.main-nav--item-container li a')).get(index);
+  return element.all(by.css('.main-nav--item-container li')).get(index);
 };
 
 MenuModule.prototype.systemLink = function(){

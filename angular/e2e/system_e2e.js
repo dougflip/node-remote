@@ -1,6 +1,10 @@
 describe('Running NodeRemote', function(){
   var testHelper = require('./test-helper');
 
+  beforeEach(function(){
+    testHelper.getIndex();
+  });
+
   describe('setting volume up and down', function(){
     var systemPage;
     beforeEach(function(){
@@ -8,7 +12,6 @@ describe('Running NodeRemote', function(){
     });
 
     it('should reflect changes in the UI', function(){
-      testHelper.getIndex();
       expect(systemPage.volumeInput().getAttribute('value')).toEqual('50');
 
       systemPage.volumeUpBtn().click();
@@ -32,6 +35,7 @@ describe('Running NodeRemote', function(){
     it('should navigate to the browser module', function(){
       headerModule.mainMenuButton().click();
       menuModule.browserLink().click();
+      expect(menuModule.browserLink().getAttribute('class')).toMatch('active');
       expect(browserModule.launchInput().isPresent()).toBe(true);
     });
 
