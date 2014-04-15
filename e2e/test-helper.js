@@ -19,6 +19,10 @@ HeaderModule.prototype.mainMenuButton = function(){
   return element(by.css('.main-menu'));
 };
 
+HeaderModule.prototype.muteButton = function(){
+  return element(by.css('.mute'));
+};
+
 function MenuModule(){}
 
 MenuModule.prototype.getLinkAt = function(index){
