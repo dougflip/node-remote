@@ -1,12 +1,20 @@
-<section class="trackpad">
-  <div class="trackpad--touchpad" hm-drag="trackpadCtrl.onTrackDrag($event)" hm-touch="trackpadCtrl.onTrackTouchStart($event)"></div>
-  <div class="trackpad--buttons">
-    <div class="trackpad--left"></div>
-    <div class="trackpad--double"></div>
-    <div class="trackpad--right"></div>
+<section class="content-container trackpad">
+  <div class="row">
+    <div class="col-xs-12">
+      <form ng-submit="trackpadCtrl.sendText(trackpadCtrl.text)">
+        <input ng-model="trackpadCtrl.text" class="form-control" placeholder="type and send..." />
+      </form>
+    </div>
   </div>
-
-  <input ng-model="trackpadCtrl.deltaX">
-  <input ng-model="trackpadCtrl.deltaY">
-
+  <hr />
+  <div class="row touchpad-row">
+    <div class="col-xs-12 touchpad-col">
+      <div class="trackpad--touchpad" hm-drag="trackpadCtrl.onTrackDrag($event)" hm-touch="trackpadCtrl.onTrackTouchStart($event)"></div>
+    </div>
+  </div>
+  <div class="row trackpad--buttons">
+    <div class="col-xs-4 left-click"><button class="btn btn-primary btn-large"></button></div>
+    <div class="col-xs-4 double-click"><button class="btn btn-large"></button></div>
+    <div class="col-xs-4 right-click"><button class="btn btn-primary btn-large"></button></div>
+  </div>
 </section>
