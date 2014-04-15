@@ -10,7 +10,10 @@ describe('TrackpadController', function(){
       this.calculateDrag = new Function();
     };
     trackpadServiceMock = {
-      moveRelative: new Function()
+      moveRelative: new Function(),
+      leftClick: new Function(),
+      doubleClick: new Function(),
+      rightClick: new Function()
     }
     evtMock = {
       gesture: {
@@ -51,6 +54,30 @@ describe('TrackpadController', function(){
       spyOn(trackpadServiceMock, 'moveRelative');
       sut.onTrackDrag(evtMock);
       expect(trackpadServiceMock.moveRelative).toHaveBeenCalledWith(drag.deltaX, drag.deltaY);
+    });
+  });
+
+  describe('when calling leftClick', function(){
+    it('should call through to the trackpad service', function(){
+      spyOn(trackpadServiceMock, 'leftClick');
+      sut.leftClick();
+      expect(trackpadServiceMock.leftClick).toHaveBeenCalled();
+    });
+  });
+
+  describe('when calling rightClick', function(){
+    it('should call through to the trackpad service', function(){
+      spyOn(trackpadServiceMock, 'rightClick');
+      sut.rightClick();
+      expect(trackpadServiceMock.rightClick).toHaveBeenCalled();
+    });
+  });
+
+  describe('when calling doubleClick', function(){
+    it('should call through to the trackpad service', function(){
+      spyOn(trackpadServiceMock, 'doubleClick');
+      sut.doubleClick();
+      expect(trackpadServiceMock.doubleClick).toHaveBeenCalled();
     });
   });
 });

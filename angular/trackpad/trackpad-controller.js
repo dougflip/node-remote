@@ -14,4 +14,16 @@ TrackpadController.prototype.onTrackDrag = function(evt){
   this.trackpadService.moveRelative(position.deltaX, position.deltaY);
 };
 
+TrackpadController.prototype.leftClick = function(){
+  return this.trackpadService.leftClick();
+};
+
+TrackpadController.prototype.rightClick = function(){
+  return this.trackpadService.rightClick();
+};
+
+TrackpadController.prototype.doubleClick = function(){
+  return this.trackpadService.doubleClick();
+};
+
 module.exports = ['DragCalculator', 'trackpadService', TrackpadController];

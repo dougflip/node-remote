@@ -13,8 +13,14 @@
     </div>
   </div>
   <div class="row trackpad--buttons">
-    <div class="col-xs-4 left-click"><button class="btn btn-primary btn-large"></button></div>
-    <div class="col-xs-4 double-click"><button class="btn btn-large"></button></div>
-    <div class="col-xs-4 right-click"><button class="btn btn-primary btn-large"></button></div>
+    <div class="col-xs-5 left-click">
+        <button ng-click="trackpadCtrl.leftClick()" class="btn btn-primary btn-large"></button>
+      </div>
+    <div class="col-xs-2 double-click">
+      <button ng-click="trackpadCtrl.doubleClick()" class="btn btn-large"></button>
+    </div>
+    <div class="col-xs-5 right-click">
+      <button ng-click="trackpadCtrl.rightClick()" class="btn btn-primary btn-large"></button>
+    </div>
   </div>
 </section>
