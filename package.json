@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "coffee src/app.coffee",
-    "build:client": "browserify angular/node-remote.js -o angular/bundle.js"
+    "build:client": "browserify angular/node-remote.js -o angular/bundle.js",
+    "test:e2e": "protractor protractor.conf.js"
   },
   "author": "Doug DiFilippo (dougflip)",
   "license": "MIT",
