@@ -9,8 +9,9 @@
   },
   "scripts": {
     "start": "coffee src/app.coffee",
-    "build:client": "browserify angular/node-remote.js -o angular/bundle.js",
-    "test:e2e": "protractor protractor.conf.js"
+    "client:build": "browserify angular/node-remote.js -o angular/bundle.js",
+    "client:test:e2e": "protractor protractor.conf.js",
+    "client:test:unit": "karma start --single-run"
   },
   "author": "Doug DiFilippo (dougflip)",
   "license": "MIT",
