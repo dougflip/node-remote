@@ -1,8 +1,0 @@
-mixin keyboardShort(name, key, buttonClass)
-   form(action="/keys", method="post" class="keyboard-short")
-     input(type="hidden", name="keys", value=key)
-     button(type="submit" class=buttonClass || "") #{name}
-
-mixin browserForm()
-  form(action="/browser/launch", method="post")
-    block

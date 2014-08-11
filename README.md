@@ -1,72 +1,42 @@
 node-remote
 ===========
 
+This is a front end client for [https://github.com/dougflip/node-remote-api](https://github.com/dougflip/node-remote-api).  
+Before anything else you'll want to get the API up and running.
+
 ## Getting Started
 
-- Install [xmacroplay](http://xmacro.sourceforge.net) (I think I used apt-get, need to check)
-- Install [xdotool](http://tuxradar.com/content/xdotool-script-your-mouse) (I think I used apt-get, need to check)
-- Install latest of [Node](http://nodejs.org/)
-- `npm install -g coffee-script` install CoffeeScript globally
-- `npm install -g bower` install bower globally
+You need to install dependencies and build the client bundle through [browserify](http://browserify.org/).
 
-## Running the Server
-Install dependencies
+- `npm install`
+- `bower install`
+- `npm run build` - builds the bundle via browserify
 
-```
-npm install
-bower install
-```
+## Running the App
 
-For regular debugging you can just fire up the app with coffee:
+You need to serve the `app/` directory - which you can do any way you want.  
+For simplicity I am using [http-server](https://github.com/nodeapps/http-server).  
+You can install it globally `npm i http-server -g` and then `npm start` will get you running.
 
-```
-coffee src/app.coffee
-```
-
-When I am actually running it on my media machine I use [forever](https://github.com/nodejitsu/forever):
-
-```
-npm install -g forever
-forever -c coffee start src/app.coffee
-```
-
-Either way you should be able to visit [localhost:9000](http://localhost:9000) at this point.
+If you use http-server and npm start you will be able to load [http://localhost:9000/](http://localhost:9000/).
 
 ## Basic Overview
 
-The above starts up a web server listening on 9000.  
-You should be able to request the index page over your local network
-by referencing the server machine by ip - something like 192.168.x.x:9000.
+You will have two servers running behind the scenes: 1 to serve this front end SPA and one serving the [API](https://github.com/dougflip/node-remote-api). Typically, I run the front end at [http://localhost:9000/](http://localhost:9000/) and the API at [http://localhost:9001/](http://localhost:9001/). Right now, the client is hard coded to port 9001, but the whole URL can be parameterized at somepoint.
 
-The controls on the UI send HTTP requests to the Node server.  
-The Node server then issues commands directly to the host machine.  
-Most of these end up being xmacro (keyboard input) or xdotool (mouse input) commands.
-
-## Features
-
-- Volume control
-- Open Chrome (optionally to a URL)
-- Close the active window (alt + F4)
-- Suspend
-- Netflix
-    - search (launches a browser to "Profile 1")
-    - pause/play (key input of "spacebar")
-    - full screen (key input of "f")
-    - exit full screen (key input of "Escape")
-    - some hard coded links (yes, I still watch X-files)
-- Mouse Input
-    - a touchpad (runs over AJAX - I'd like to try WebSockets at some point)
-    - left click
-    - right click
-
-## Branches
-
-I am going to try and keep `master` stable and tested on my actual media machine.
-So I'll work against the `dev` branch and periodically verify and merge to `master`.
+The general concept is that this client makes AJAX requests to the API which in turn takes action on your media machine. So clicking the volume up button, for example, sends a POST request to [http://localhost:9001/system/volume](http://localhost:9001/system/volume). The end result is the volume on the system is set to the new level.
 
 ## Running Tests
 
+Unit tests:
+
 ```
-npm install -g mocha
-mocha
+npm test
+```
+
+The e2e tests *should* work even though all of the API endpoints are going to scream 404s at you under the hood.  
+I'll put in a mock backend at somepoint - which should be easy since everything returns 204's:
+
+```
+npm run e2e
 ```

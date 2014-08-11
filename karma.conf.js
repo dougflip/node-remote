@@ -15,12 +15,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'public/bowercomponents/angular/angular.js',
-      'public/bowercomponents/angular-ui-router/release/angular-ui-router.js',
-      'public/bowercomponents/angular-mocks/angular-mocks.js',
-      'public/bowercomponents/hammerjs/hammer.min.js',
-      'public/bowercomponents/angular-hammer/angular-hammer.js',
-      'angular/**/*_test.js'
+      'app/public/bower-components/angular/angular.js',
+      'app/public/bower-components/angular-ui-router/release/angular-ui-router.js',
+      'app/public/bower-components/angular-mocks/angular-mocks.js',
+      'app/public/bower-components/hammerjs/hammer.min.js',
+      'app/public/bower-components/angular-hammer/angular-hammer.js',
+      'app/**/*_test.js'
     ],
 
 
@@ -33,7 +33,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'angular/**/*_test.js': ['browserify']
+      'app/**/*_test.js': ['browserify']
     },
 
     browserify: {
