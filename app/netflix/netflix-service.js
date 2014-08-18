@@ -14,15 +14,47 @@ NetflixService.prototype.search = function(query){
 };
 
 NetflixService.prototype.launchMedia = function(id){
-  return this.http.post(
-    '/browser/launch',
-    {
-      flags:{
-        '--profile-directory': '"Profile 1"'
-      },
-      'url': 'http://movies.netflix.com/WiPlayer?movieid=' + id
-    }
-  );
-}
+  return this.http.post('/browser/launch', { mediaId: id });
+};
+
+NetflixService.prototype.togglePlayPause = function(){
+  return this.http.post('/netflix/toggle-play-pause');
+};
+
+NetflixService.prototype.play = function(){
+  return this.http.post('/netflix/play');
+};
+
+NetflixService.prototype.pause = function(){
+  return this.http.post('/netflix/pause');
+};
+
+NetflixService.prototype.fullScreen = function(){
+  return this.http.post('/netflix/full-screen');
+};
+
+NetflixService.prototype.exitFullScreen = function(){
+  return this.http.post('/netflix/exit-full-screen');
+};
+
+NetflixService.prototype.rewind = function(){
+  return this.http.post('/netflix/rewind');
+};
+
+NetflixService.prototype.fastForward = function(){
+  return this.http.post('/netflix/fast-forward');
+};
+
+NetflixService.prototype.toggleKeyframeMode = function(){
+  return this.http.post('/netflix/toggle-keyframe-mode');
+};
+
+NetflixService.prototype.frameBack = function(){
+  return this.http.post('/netflix/frame-back');
+};
+
+NetflixService.prototype.frameForward = function(){
+  return this.http.post('/netflix/frame-forward');
+};
 
 module.exports = ['$http', NetflixService];

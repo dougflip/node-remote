@@ -30,11 +30,11 @@ SystemService.prototype.setVolume = function(level){
 
   this.volume = level;
   this.emitVolumeChange();
-  return this.http.post('/system/setVolume', { level: this.volume });
+  return this.http.post('/system/set-volume', { level: this.volume });
 };
 
 SystemService.prototype.closeWindow = function(){
-  return this.http.post('/keys', { keys: 'press:Alt_L press:F4 release:F4 release:Alt_L' });
+  return this.http.post('/system/close-window');
 };
 
 SystemService.prototype.suspend = function(){

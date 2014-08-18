@@ -7,23 +7,23 @@ BrowserService.prototype.launch = function(url, flags){
 }
 
 BrowserService.prototype.closeTab = function(){
-  return this.http.post('/browser/closeTab');
+  return this.http.post('/browser/close-tab');
 }
 
 BrowserService.prototype.nextTab = function(){
-  return this.http.post('/browser/nextTab');
+  return this.http.post('/browser/next-tab');
 }
 
 BrowserService.prototype.zoomIn = function(){
-  return this.http.post('/browser/zoomIn');
+  return this.http.post('/browser/zoom-in');
 }
 
 BrowserService.prototype.zoomOut = function(){
-  return this.http.post('/browser/zoomOut');
+  return this.http.post('/browser/zoom-out');
 }
 
 BrowserService.prototype.actualSize = function(){
-  return this.http.post('/browser/actualSize');
+  return this.http.post('/browser/actual-size');
 }
 
 module.exports = ['$http', BrowserService];

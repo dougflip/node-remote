@@ -15,6 +15,17 @@ var nodeRemote = ng.module('nodeRemote', [
 
 nodeRemote.config(
   require('./routing')
-);
+).config(function($httpProvider){
+  $httpProvider.interceptors.push(function(){
+    return {
+      request: function(config){
+        if(!/\.html$/i.test(config.url)){
+          config.url = 'http://localhost:9001' + config.url;  
+        }
+        return config;
+      }
+    }
+  })
+});
 
 module.exports = nodeRemote;

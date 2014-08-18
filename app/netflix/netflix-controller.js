@@ -1,6 +1,5 @@
-function NetflixCtrl(keyboardService, netflixService){
+function NetflixCtrl(netflixService){
   this.searchQuery = null;
-  this.keyboardService = keyboardService;
   this.netflixService = netflixService;
 
   this.media = netflixService.media;
@@ -12,19 +11,19 @@ NetflixCtrl.prototype.search = function(query){
 };
 
 NetflixCtrl.prototype.fullScreen = function(){
-  this.keyboardService.sendKeys('f');
+  this.netflixService.fullScreen();
 };
 
 NetflixCtrl.prototype.exitFullScreen = function(){
-  this.keyboardService.sendKeys('Escape');
+  this.netflixService.exitFullScreen();
 };
 
 NetflixCtrl.prototype.togglePlayPause = function(){
-  this.keyboardService.sendKeys('space');
+  this.netflixService.togglePlayPause();
 };
 
 NetflixCtrl.prototype.launchMedia = function(id){
   this.netflixService.launchMedia(id);
 }
 
-module.exports = ['keyboardService', 'netflixService', NetflixCtrl];
+module.exports = ['netflixService', NetflixCtrl];

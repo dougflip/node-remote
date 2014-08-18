@@ -41,23 +41,23 @@ BrowserService.prototype.launch = function(url, flags){
 }
 
 BrowserService.prototype.closeTab = function(){
-  return this.http.post('/browser/closeTab');
+  return this.http.post('/browser/close-tab');
 }
 
 BrowserService.prototype.nextTab = function(){
-  return this.http.post('/browser/nextTab');
+  return this.http.post('/browser/next-tab');
 }
 
 BrowserService.prototype.zoomIn = function(){
-  return this.http.post('/browser/zoomIn');
+  return this.http.post('/browser/zoom-in');
 }
 
 BrowserService.prototype.zoomOut = function(){
-  return this.http.post('/browser/zoomOut');
+  return this.http.post('/browser/zoom-out');
 }
 
 BrowserService.prototype.actualSize = function(){
-  return this.http.post('/browser/actualSize');
+  return this.http.post('/browser/actual-size');
 }
 
 module.exports = ['$http', BrowserService];
@@ -103,11 +103,11 @@ function KeyboardService($http){
 }
 
 KeyboardService.prototype.sendKeys = function(keys){
-  return this.http.post('/keys', { keys: keys });
+  return this.http.post('/keyboard/send-keys', { keys: keys });
 };
 
 KeyboardService.prototype.sendText = function(text){
-  return this.http.post('/text', { text: text });
+  return this.http.post('/keyboard-send-text', { text: text });
 };
 
 module.exports = ['$http', KeyboardService];
@@ -177,9 +177,8 @@ module.exports = ng.module('netflix', [])
   .service('netflixService', require('./netflix-service'));
 
 },{"./netflix-controller.js":13,"./netflix-service":14}],13:[function(require,module,exports){
-function NetflixCtrl(keyboardService, netflixService){
+function NetflixCtrl(netflixService){
   this.searchQuery = null;
-  this.keyboardService = keyboardService;
   this.netflixService = netflixService;
 
   this.media = netflixService.media;
@@ -191,22 +190,22 @@ NetflixCtrl.prototype.search = function(query){
 };
 
 NetflixCtrl.prototype.fullScreen = function(){
-  this.keyboardService.sendKeys('f');
+  this.netflixService.fullScreen();
 };
 
 NetflixCtrl.prototype.exitFullScreen = function(){
-  this.keyboardService.sendKeys('Escape');
+  this.netflixService.exitFullScreen();
 };
 
 NetflixCtrl.prototype.togglePlayPause = function(){
-  this.keyboardService.sendKeys('space');
+  this.netflixService.togglePlayPause();
 };
 
 NetflixCtrl.prototype.launchMedia = function(id){
   this.netflixService.launchMedia(id);
 }
 
-module.exports = ['keyboardService', 'netflixService', NetflixCtrl];
+module.exports = ['netflixService', NetflixCtrl];
 
 },{}],14:[function(require,module,exports){
 function NetflixService($http){
@@ -225,16 +224,48 @@ NetflixService.prototype.search = function(query){
 };
 
 NetflixService.prototype.launchMedia = function(id){
-  return this.http.post(
-    '/browser/launch',
-    {
-      flags:{
-        '--profile-directory': '"Profile 1"'
-      },
-      'url': 'http://movies.netflix.com/WiPlayer?movieid=' + id
-    }
-  );
-}
+  return this.http.post('/browser/launch', { mediaId: id });
+};
+
+NetflixService.prototype.togglePlayPause = function(){
+  return this.http.post('/netflix/toggle-play-pause');
+};
+
+NetflixService.prototype.play = function(){
+  return this.http.post('/netflix/play');
+};
+
+NetflixService.prototype.pause = function(){
+  return this.http.post('/netflix/pause');
+};
+
+NetflixService.prototype.fullScreen = function(){
+  return this.http.post('/netflix/full-screen');
+};
+
+NetflixService.prototype.exitFullScreen = function(){
+  return this.http.post('/netflix/exit-full-screen');
+};
+
+NetflixService.prototype.rewind = function(){
+  return this.http.post('/netflix/rewind');
+};
+
+NetflixService.prototype.fastForward = function(){
+  return this.http.post('/netflix/fast-forward');
+};
+
+NetflixService.prototype.toggleKeyframeMode = function(){
+  return this.http.post('/netflix/toggle-keyframe-mode');
+};
+
+NetflixService.prototype.frameBack = function(){
+  return this.http.post('/netflix/frame-back');
+};
+
+NetflixService.prototype.frameForward = function(){
+  return this.http.post('/netflix/frame-forward');
+};
 
 module.exports = ['$http', NetflixService];
 
@@ -256,7 +287,19 @@ var nodeRemote = ng.module('nodeRemote', [
 
 nodeRemote.config(
   require('./routing')
-);
+).config(function($httpProvider){
+  $httpProvider.interceptors.push(function(){
+    return {
+      request: function(config){
+        if(!/\.html$/i.test(config.url)){
+          config.url = 'http://localhost:9001' + config.url;  
+        }
+        console.log(config);
+        return config;
+      }
+    }
+  })
+});
 
 module.exports = nodeRemote;
 
@@ -358,11 +401,11 @@ SystemService.prototype.setVolume = function(level){
 
   this.volume = level;
   this.emitVolumeChange();
-  return this.http.post('/system/setVolume', { level: this.volume });
+  return this.http.post('/system/set-volume', { level: this.volume });
 };
 
 SystemService.prototype.closeWindow = function(){
-  return this.http.post('/keys', { keys: 'press:Alt_L press:F4 release:F4 release:Alt_L' });
+  return this.http.post('/system/close-window');
 };
 
 SystemService.prototype.suspend = function(){
@@ -465,19 +508,19 @@ function TrackpadService($http){
 }
 
 TrackpadService.prototype.moveRelative = function(x, y){
-  return this.http.post('/mouse/moveRelative', { xrel: x, yrel: y });
+  return this.http.post('/mouse/move-relative', { x: x, y: y });
 };
 
 TrackpadService.prototype.leftClick = function(){
-  return this.http.post('/mouse/leftClick');
+  return this.http.post('/mouse/left-click');
 };
 
 TrackpadService.prototype.rightClick = function(){
-  return this.http.post('/mouse/rightClick');
+  return this.http.post('/mouse/right-click');
 };
 
 TrackpadService.prototype.doubleClick = function(){
-  return this.http.post('/mouse/doubleClick');
+  return this.http.post('/mouse/double-click');
 };
 
 module.exports = ['$http', TrackpadService];
