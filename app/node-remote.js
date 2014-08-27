@@ -9,6 +9,7 @@ var nodeRemote = ng.module('nodeRemote', [
   require('./lib').name,
   require('./menu').name,
   require('./netflix').name,
+  require('./voice-command').name,
   require('./system').name,
   require('./trackpad').name,
   require('./you-tube').name

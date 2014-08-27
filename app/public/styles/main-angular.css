@@ -112,3 +112,19 @@ img{
 .double-click, .right-click{
   padding-left: 0;
 }
+
+.voice-command-container {
+  margin-top: 15px;
+}
+
+.voice-command-container .wit-microphone {
+  position: absolute;
+  right: -75px;
+  width: 150px;
+  height: 150px;
+}
+
+.voice-command-container .icon-wit-mic {
+  font-size: 90px;
+  line-height: 145px;
+}

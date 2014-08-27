@@ -12,6 +12,10 @@ module.exports = function($stateProvider, $urlRouterProvider){
       templateUrl: '/netflix/netflix.html',
       controller: 'netflixCtrl as netflixCtrl'
     })
+    .state('voiceCommand', {
+      url: '/voice-command',
+      templateUrl: '/voice-command/voice-command.html'
+    })
     .state('system', {
       url: '/system',
       templateUrl: '/system/system.html',
