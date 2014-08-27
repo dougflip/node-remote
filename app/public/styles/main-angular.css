@@ -83,6 +83,10 @@ img{
   margin-bottom: 10px;
 }
 
+.btn-controls-wrapper .btn {
+  width: 100%;
+}
+
 .touchpad-row{
   height: 60%;
 }

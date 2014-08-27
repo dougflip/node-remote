@@ -7,7 +7,7 @@
     </div>
   </div>
   <hr />
-  <div class="row">
+  <div class="row btn-controls-wrapper">
     <div class="col-xs-6">
       <button ng-click="netflixCtrl.fullScreen()" class="btn btn-primary btn-lg">
         <span class="glyphicon glyphicon-fullscreen"></span>
@@ -22,12 +22,43 @@
     </div>
   </div>
   <hr />
-  <div class="row">
-    <div class="col-xs-12">
-      <button ng-click="netflixCtrl.togglePlayPause()" class="btn btn-primary btn-lg">
-        <span class="glyphicon glyphicon-play"></span>
-        /
+  <div class="row btn-controls-wrapper">
+    <div class="col-xs-3">
+      <button ng-click="netflixCtrl.rewind()" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-fast-backward"></span>
+      </button>
+    </div>
+    <div class="col-xs-3">
+      <button ng-click="netflixCtrl.pause()" class="btn btn-primary btn-lg">
         <span class="glyphicon glyphicon-pause"></span>
+      </button>
+    </div>
+    <div class="col-xs-3">
+      <button ng-click="netflixCtrl.play()" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-play"></span>
+      </button>
+    </div>
+    <div class="col-xs-3">
+      <button ng-click="netflixCtrl.fastForward()" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-fast-forward"></span>
+      </button>
+    </div>
+  </div>
+  <hr />
+  <div class="row btn-controls-wrapper">
+    <div class="col-xs-4">
+      <button ng-click="netflixCtrl.frameBack()" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-step-backward"></span>
+      </button>
+    </div>
+    <div class="col-xs-4">
+      <button ng-click="netflixCtrl.toggleKeyframeMode()" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-film"></span>
+      </button>
+    </div>
+    <div class="col-xs-4">
+      <button ng-click="netflixCtrl.frameForward()" class="btn btn-primary btn-lg">
+        <span class="glyphicon glyphicon-step-forward"></span>
       </button>
     </div>
   </div>

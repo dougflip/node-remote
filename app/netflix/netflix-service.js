@@ -14,7 +14,7 @@ NetflixService.prototype.search = function(query){
 };
 
 NetflixService.prototype.launchMedia = function(id){
-  return this.http.post('/browser/launch', { mediaId: id });
+  return this.http.post('/netflix/launch-media-item', { mediaId: id });
 };
 
 NetflixService.prototype.togglePlayPause = function(){

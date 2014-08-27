@@ -113,6 +113,17 @@ KeyboardService.prototype.sendText = function(text){
 module.exports = ['$http', KeyboardService];
 
 },{}],8:[function(require,module,exports){
+function ControllerHelper(){}
+
+ControllerHelper.prototype.createPassThroughMethods = function(methods, ctrl, svc){
+  methods.forEach(function(method){
+    ctrl[method] = svc[method].bind(svc);
+  });
+};
+
+module.exports = [ControllerHelper];
+
+},{}],9:[function(require,module,exports){
 var EventEmitter = require('events').EventEmitter;
 
 function Events(){
@@ -131,18 +142,19 @@ module.exports = function(){
   return Events;
 };
 
-},{"events":24}],9:[function(require,module,exports){
+},{"events":25}],10:[function(require,module,exports){
 var ng = (window.angular);
 
 module.exports = ng.module('lib', [])
-  .factory('Events', require('./events.js'));
+  .factory('Events', require('./events.js'))
+  .service('controllerHelper', require('./controller-helper'));
 
-},{"./events.js":8}],10:[function(require,module,exports){
+},{"./controller-helper":8,"./events.js":9}],11:[function(require,module,exports){
 var ng = (window.angular);
 
 module.exports = ng.module('menu', [])
   .controller('menuCtrl', require('./menu-controller.js'))
-},{"./menu-controller.js":11}],11:[function(require,module,exports){
+},{"./menu-controller.js":12}],12:[function(require,module,exports){
 function MenuController($rootScope, $location){
   this.menuIsOpen = false;
   var self = this;
@@ -169,14 +181,21 @@ MenuController.prototype.closeMenu = function(){
 
 module.exports = ['$rootScope', '$location', MenuController];
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var ng = (window.angular);
 
 module.exports = ng.module('netflix', [])
   .controller('netflixCtrl', require('./netflix-controller.js'))
   .service('netflixService', require('./netflix-service'));
 
-},{"./netflix-controller.js":13,"./netflix-service":14}],13:[function(require,module,exports){
+},{"./netflix-controller.js":14,"./netflix-service":15}],14:[function(require,module,exports){
+var angular = (window.angular);
+
+var passThroughMethods = [
+  'fullScreen', 'exitFullScreen', 'rewind', 'pause', 'play', 'fastForward',
+  'frameBack', 'toggleKeyframeMode', 'frameForward', 'launchMedia'
+];
+
 function NetflixCtrl(netflixService){
   this.searchQuery = null;
   this.netflixService = netflixService;
@@ -189,25 +208,15 @@ NetflixCtrl.prototype.search = function(query){
   this.searchQuery = null;
 };
 
-NetflixCtrl.prototype.fullScreen = function(){
-  this.netflixService.fullScreen();
-};
+function createNetflixCtrl(controllerHelper, netflixService){
+  controllerHelper.createPassThroughMethods(passThroughMethods, NetflixCtrl.prototype, netflixService)
 
-NetflixCtrl.prototype.exitFullScreen = function(){
-  this.netflixService.exitFullScreen();
-};
-
-NetflixCtrl.prototype.togglePlayPause = function(){
-  this.netflixService.togglePlayPause();
-};
-
-NetflixCtrl.prototype.launchMedia = function(id){
-  this.netflixService.launchMedia(id);
+  return new NetflixCtrl(netflixService);
 }
 
-module.exports = ['netflixService', NetflixCtrl];
+module.exports = ['controllerHelper', 'netflixService', createNetflixCtrl];
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 function NetflixService($http){
   this.http = $http;
 
@@ -224,7 +233,7 @@ NetflixService.prototype.search = function(query){
 };
 
 NetflixService.prototype.launchMedia = function(id){
-  return this.http.post('/browser/launch', { mediaId: id });
+  return this.http.post('/netflix/launch-media-item', { mediaId: id });
 };
 
 NetflixService.prototype.togglePlayPause = function(){
@@ -269,7 +278,7 @@ NetflixService.prototype.frameForward = function(){
 
 module.exports = ['$http', NetflixService];
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 var ng = (window.angular);
 
 var nodeRemote = ng.module('nodeRemote', [
@@ -294,7 +303,6 @@ nodeRemote.config(
         if(!/\.html$/i.test(config.url)){
           config.url = 'http://localhost:9001' + config.url;  
         }
-        console.log(config);
         return config;
       }
     }
@@ -303,7 +311,7 @@ nodeRemote.config(
 
 module.exports = nodeRemote;
 
-},{"./browser":3,"./header":5,"./keyboard":6,"./lib":9,"./menu":10,"./netflix":12,"./routing":16,"./system":17,"./trackpad":21}],16:[function(require,module,exports){
+},{"./browser":3,"./header":5,"./keyboard":6,"./lib":10,"./menu":11,"./netflix":13,"./routing":17,"./system":18,"./trackpad":22}],17:[function(require,module,exports){
 module.exports = function($stateProvider, $urlRouterProvider){
   $urlRouterProvider.otherwise("/system");
 
@@ -330,14 +338,14 @@ module.exports = function($stateProvider, $urlRouterProvider){
     });
 };
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var ng = (window.angular);
 
 module.exports = ng.module('system', [])
   .controller('systemCtrl', require('./system-controller.js'))
   .service('systemService', require('./system-service'));
 
-},{"./system-controller.js":18,"./system-service":19}],18:[function(require,module,exports){
+},{"./system-controller.js":19,"./system-service":20}],19:[function(require,module,exports){
 var ng = (window.angular);
 
 function SystemCtrl($scope, systemService){
@@ -368,7 +376,7 @@ SystemCtrl.prototype.suspend = function(){
 
 module.exports = ['$scope', 'systemService', SystemCtrl];
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var ng           = (window.angular);
 
 var EVT_VOLUME_CHANGE = 'system:volumeChange';
@@ -430,7 +438,7 @@ function parseNewLevel(level){
 
 module.exports = ['$http', 'Events', SystemService];
 
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 function DragCalculator(){
   this.previous = {
     x: null,
@@ -455,7 +463,7 @@ DragCalculator.prototype.calculateDrag = function(touch){
 
 module.exports = function(){ return DragCalculator };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 var ng = (window.angular);
 
 module.exports = ng.module('trackpad', [])
@@ -463,7 +471,7 @@ module.exports = ng.module('trackpad', [])
   .factory('DragCalculator', require('./drag-calculator'))
   .service('trackpadService', require('./trackpad-service'));
 
-},{"./drag-calculator":20,"./trackpad-controller":22,"./trackpad-service":23}],22:[function(require,module,exports){
+},{"./drag-calculator":21,"./trackpad-controller":23,"./trackpad-service":24}],23:[function(require,module,exports){
 function TrackpadController(DragCalculator, trackpadService, keyboardService){
   this.dragCalculator = new DragCalculator();
   this.trackpadService = trackpadService;
@@ -502,7 +510,7 @@ TrackpadController.prototype.doubleClick = function(){
 
 module.exports = ['DragCalculator', 'trackpadService', 'keyboardService', TrackpadController];
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 function TrackpadService($http){
   this.http = $http;
 }
@@ -525,7 +533,7 @@ TrackpadService.prototype.doubleClick = function(){
 
 module.exports = ['$http', TrackpadService];
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -827,4 +835,4 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}]},{},[15])
+},{}]},{},[16])

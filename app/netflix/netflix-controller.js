@@ -1,3 +1,10 @@
+var angular = require('angular');
+
+var passThroughMethods = [
+  'fullScreen', 'exitFullScreen', 'rewind', 'pause', 'play', 'fastForward',
+  'frameBack', 'toggleKeyframeMode', 'frameForward', 'launchMedia'
+];
+
 function NetflixCtrl(netflixService){
   this.searchQuery = null;
   this.netflixService = netflixService;
@@ -10,20 +17,10 @@ NetflixCtrl.prototype.search = function(query){
   this.searchQuery = null;
 };
 
-NetflixCtrl.prototype.fullScreen = function(){
-  this.netflixService.fullScreen();
-};
+function createNetflixCtrl(controllerHelper, netflixService){
+  controllerHelper.createPassThroughMethods(passThroughMethods, NetflixCtrl.prototype, netflixService)
 
-NetflixCtrl.prototype.exitFullScreen = function(){
-  this.netflixService.exitFullScreen();
-};
-
-NetflixCtrl.prototype.togglePlayPause = function(){
-  this.netflixService.togglePlayPause();
-};
-
-NetflixCtrl.prototype.launchMedia = function(id){
-  this.netflixService.launchMedia(id);
+  return new NetflixCtrl(netflixService);
 }
 
-module.exports = ['netflixService', NetflixCtrl];
+module.exports = ['controllerHelper', 'netflixService', createNetflixCtrl];
