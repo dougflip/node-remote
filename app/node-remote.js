@@ -20,7 +20,7 @@ nodeRemote.config(
     return {
       request: function(config){
         if(!/\.html$/i.test(config.url)){
-          config.url = 'http://localhost:9001' + config.url;  
+          config.url = 'api/' + config.url;  
         }
         return config;
       }
