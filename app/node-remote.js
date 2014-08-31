@@ -20,7 +20,8 @@ nodeRemote.config(
     return {
       request: function(config){
         if(!/\.html$/i.test(config.url)){
-          config.url = 'api/' + config.url;  
+          console.log(config.url);
+          config.url = '/api' + config.url;
         }
         return config;
       }

@@ -1,5 +1,5 @@
 var express = require('express');
-var httpProxy = require('http-proxy');
+var request = require('request');
 var path = require('path')
 var app = express();
 
@@ -10,8 +10,8 @@ var apiPort = process.env.API_PORT || 9001;
 function apiProxy(host, port) {
   return function(req, res, next) {
     if(req.url.match(rgxProxyPattern)) {
-      console.log('proxy', req.url, 'to', host);
-      proxy.proxyRequest(req, res, {host: host, port: port});
+      var url = 'http://' + apiHost + ':' + apiPort + req.url.replace('/api', '');
+      req.pipe(request(url)).pipe(res);
     } else {
       next();
     }
