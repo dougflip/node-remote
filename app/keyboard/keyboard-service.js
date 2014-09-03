@@ -7,7 +7,7 @@ KeyboardService.prototype.sendKeys = function(keys){
 };
 
 KeyboardService.prototype.sendText = function(text){
-  return this.http.post('/keyboard-send-text', { text: text });
+  return this.http.post('/keyboard/send-text', { text: text });
 };
 
 module.exports = ['$http', KeyboardService];
