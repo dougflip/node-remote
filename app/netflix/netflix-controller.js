@@ -18,7 +18,7 @@ NetflixCtrl.prototype.search = function(query){
 };
 
 function createNetflixCtrl(controllerHelper, netflixService){
-  controllerHelper.createPassThroughMethods(passThroughMethods, NetflixCtrl.prototype, netflixService)
+  controllerHelper.createPassThroughMethods(passThroughMethods, NetflixCtrl.prototype, netflixService);
 
   return new NetflixCtrl(netflixService);
 }

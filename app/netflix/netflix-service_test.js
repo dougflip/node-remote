@@ -11,7 +11,7 @@ describe('NetflixService', function(){
 
   describe('when calling search', function(){
     it('should call the correct API end point', function(){
-      $httpBackend.expectPOST('/netflix/search', { searchTerm: 'the office' }).respond(200);
+      $httpBackend.expectPOST('/api/netflix/search', { searchTerm: 'the office' }).respond(200);
       sut.search('the office');
       $httpBackend.flush();
     });
@@ -19,12 +19,7 @@ describe('NetflixService', function(){
 
   describe('when calling launchMedia', function(){
     it('should call the correct API end point', function(){
-      $httpBackend.expectPOST('/browser/launch', {
-        flags:{
-          '--profile-directory': '"Profile 1"'
-        },
-        'url': 'http://movies.netflix.com/WiPlayer?movieid=1234'
-      }).respond(200);
+      $httpBackend.expectPOST('/api/netflix/launch-media-item', { mediaId: 1234 }).respond(200);
       sut.launchMedia(1234);
       $httpBackend.flush();
     });

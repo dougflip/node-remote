@@ -40,6 +40,7 @@ describe('SystemService', function(){
   });
 
   describe('when muting volume', function(){
+
     beforeEach(function(){
       spyOn(sut.events.emitter, 'emit');
     });
@@ -50,13 +51,15 @@ describe('SystemService', function(){
     });
 
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/system/mute', null).respond(200);
+      $httpBackend.expectPOST('/api/system/mute', null).respond(200);
       sut.mute();
       $httpBackend.flush();
     });
+
   });
 
   describe('when setting the volume', function(){
+
     it('should block non number inputs', function(){
       spyOn(sut.events.emitter, 'emit');
       sut.setVolume('something');
@@ -84,25 +87,31 @@ describe('SystemService', function(){
     });
 
     it('should post the volume to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/system/setVolume', { level: 50 }).respond(200);
+      $httpBackend.expectPOST('/api/system/set-volume', { level: 50 }).respond(200);
       sut.setVolume(50);
       $httpBackend.flush();
     });
+
   });
 
   describe('when calling closeWindow', function(){
+
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/keys', { keys: 'press:Alt_L press:F4 release:F4 release:Alt_L' }).respond(200);
+      $httpBackend.expectPOST('/api/system/close-window').respond(200);
       sut.closeWindow();
       $httpBackend.flush();
     });
+
   });
 
   describe('when calling suspend', function(){
+
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/system/suspend').respond(200);
+      $httpBackend.expectPOST('/api/system/suspend').respond(200);
       sut.suspend();
       $httpBackend.flush();
     });
+
   });
+
 });
