@@ -1,3 +1,7 @@
+var angular = require('angular');
+
+var passThroughMethods = ['closeTab', 'nextTab', 'zoomIn', 'zoomOut', 'actualSize'];
+
 function BrowserController(browserService){
   this.browserService = browserService;
   this.launchUrl = null;
@@ -8,24 +12,10 @@ BrowserController.prototype.launch = function(){
   this.launchUrl = null;
 };
 
-BrowserController.prototype.closeTab = function(){
-  this.browserService.closeTab();
-};
+function createBrowserCtrl(controllerHelper, browserService){
+  controllerHelper.createPassThroughMethods(passThroughMethods, BrowserController.prototype, browserService);
 
-BrowserController.prototype.nextTab = function(){
-  this.browserService.nextTab();
-};
+  return new BrowserController(browserService);
+}
 
-BrowserController.prototype.zoomIn = function(){
-  this.browserService.zoomIn();
-};
-
-BrowserController.prototype.zoomOut = function(){
-  this.browserService.zoomOut();
-};
-
-BrowserController.prototype.actualSize = function(){
-  this.browserService.actualSize();
-};
-
-module.exports = ['browserService', BrowserController]
+module.exports = ['controllerHelper', 'browserService', createBrowserCtrl];
