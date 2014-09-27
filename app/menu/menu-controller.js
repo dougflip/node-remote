@@ -12,7 +12,7 @@ function MenuController($rootScope, $location){
 
 MenuController.prototype.setActiveItem = function(item){
   this.activeItem = item;
-}
+};
 
 MenuController.prototype.openMenu = function(){
   this.menuIsOpen = true;

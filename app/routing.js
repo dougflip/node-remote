@@ -21,5 +21,10 @@ module.exports = function($stateProvider, $urlRouterProvider){
       url: '/trackpad',
       templateUrl: '/trackpad/trackpad.html',
       controller: 'trackpadCtrl as trackpadCtrl'
+    })
+    .state('youTube', {
+      url: '/you-tube',
+      templateUrl: '/you-tube/you-tube.html',
+      controller: 'youTubeCtrl as youTubeCtrl'
     });
 };
