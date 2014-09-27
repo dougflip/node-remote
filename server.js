@@ -1,6 +1,7 @@
 var express = require('express');
 var request = require('request');
-var path = require('path')
+var path = require('path');
+var domain = require('domain');
 var app = express();
 
 var rgxProxyPattern = /^\/api\//;
@@ -10,8 +11,14 @@ var apiPort = process.env.API_PORT || 9001;
 function apiProxy(host, port) {
   return function(req, res, next) {
     if(req.url.match(rgxProxyPattern)) {
-      var url = 'http://' + apiHost + ':' + apiPort + req.url.replace('/api', '');
-      req.pipe(request(url)).pipe(res);
+      var url = 'http://' + host + ':' + port + req.url.replace('/api', '');
+      var d = domain.create();
+      d.on('error', function(){
+        res.status('500').end();
+      });
+      d.run(function(){
+        req.pipe(request(url)).pipe(res);
+      });
     } else {
       next();
     }
