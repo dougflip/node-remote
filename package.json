@@ -1,7 +1,7 @@
 {
   "name": "node-remote",
-  "version": "0.0.0",
-  "description": "Expose unix commands via HTTP endpoints",
+  "version": "0.1.0",
+  "description": "Front end client for node-remote-api",
   "main": "src/app.coffee",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server",
     "test": "karma start --single-run",
-    "build": "browserify app/node-remote.js -o app/bundle.js",
+    "build": "browserify app/node-remote.js -t envify -o app/bundle.js",
     "e2e": "protractor protractor.conf.js"
   },
   "author": "Doug DiFilippo (dougflip)",
@@ -19,8 +19,8 @@
     "url": "https://github.com/dougflip/node-remote/issues"
   },
   "dependencies": {
-    "events": "~1.0.0",
-    "request": "^2.40.0"
+    "envify": "^3.2.0",
+    "events": "~1.0.0"
   },
   "devDependencies": {
     "browserify": "~3.38.1",

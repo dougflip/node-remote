@@ -17,15 +17,15 @@ nodeRemote.config(
   require('./routing')
 ).config(function($httpProvider){
   $httpProvider.interceptors.push(function(){
-    return {
-      request: function(config){
-        if(!/\.html$/i.test(config.url)){
-          config.url = '/api' + config.url;
-        }
-        return config;
-      }
-    }
-  })
+    return { request: rewriteApiUrls }
+  });
 });
+
+function rewriteApiUrls(config){
+  if(!/\.html$/i.test(config.url)){
+    config.url = process.env.API_URL + config.url;
+  }
+  return config;
+}
 
 module.exports = nodeRemote;
