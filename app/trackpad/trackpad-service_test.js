@@ -13,7 +13,7 @@ describe('TrackpadService', function(){
   describe('when calling moveRelative', function(){
 
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/api/mouse/move-relative', { x: 5, y: 10 }).respond(200);
+      $httpBackend.expectPOST(/\/mouse\/move-relative/, { x: 5, y: 10 }).respond(200);
       sut.moveRelative(5, 10);
       $httpBackend.flush();
     });
@@ -23,7 +23,7 @@ describe('TrackpadService', function(){
   describe('when calling leftClick', function(){
 
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/api/mouse/left-click').respond(200);
+      $httpBackend.expectPOST(/\/mouse\/left-click/).respond(200);
       sut.leftClick();
       $httpBackend.flush();
     });
@@ -33,7 +33,7 @@ describe('TrackpadService', function(){
   describe('when calling rightClick', function(){
 
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/api/mouse/right-click').respond(200);
+      $httpBackend.expectPOST(/\/mouse\/right-click/).respond(200);
       sut.rightClick();
       $httpBackend.flush();
     });
@@ -43,7 +43,7 @@ describe('TrackpadService', function(){
   describe('when calling doubleClick', function(){
 
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/api/mouse/double-click').respond(200);
+      $httpBackend.expectPOST(/\/mouse\/double-click/).respond(200);
       sut.doubleClick();
       $httpBackend.flush();
     });

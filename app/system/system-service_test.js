@@ -51,7 +51,7 @@ describe('SystemService', function(){
     });
 
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/api/system/mute', null).respond(200);
+      $httpBackend.expectPOST(/\/system\/mute/, null).respond(200);
       sut.mute();
       $httpBackend.flush();
     });
@@ -87,7 +87,7 @@ describe('SystemService', function(){
     });
 
     it('should post the volume to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/api/system/set-volume', { level: 50 }).respond(200);
+      $httpBackend.expectPOST(/\/system\/set-volume/, { level: 50 }).respond(200);
       sut.setVolume(50);
       $httpBackend.flush();
     });
@@ -97,7 +97,7 @@ describe('SystemService', function(){
   describe('when calling closeWindow', function(){
 
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/api/system/close-window').respond(200);
+      $httpBackend.expectPOST(/\/system\/close-window/).respond(200);
       sut.closeWindow();
       $httpBackend.flush();
     });
@@ -107,7 +107,7 @@ describe('SystemService', function(){
   describe('when calling suspend', function(){
 
     it('should post to the correct API endpoint', function(){
-      $httpBackend.expectPOST('/api/system/suspend').respond(200);
+      $httpBackend.expectPOST(/\/system\/suspend/).respond(200);
       sut.suspend();
       $httpBackend.flush();
     });

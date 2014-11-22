@@ -26,7 +26,7 @@ This will start up a small node server running on port `9000`. You should now be
 
 You will have two servers running behind the scenes: 1 to serve this front end SPA and another serving the [API](https://github.com/dougflip/node-remote-api). As mentioned above, these ports are defaulted/coded to 9000 and 9001.
 
-The general concept is that this client makes AJAX requests to the API which in turn takes action on your media machine. Everything is now set up to run over CORS and a build step (along with an Angular interceptor) ensures the client calls go directly to the API server. The end result is the volume on the system is set to the new level.
+The general concept is that this client makes AJAX requests to the API which in turn takes action on your media machine. Everything is now set up to run over CORS and a build step (along with an Angular interceptor) ensures the client calls go directly to the API server.
 
 So when you build the client code you most likely need to know the IP of the machine hosting the API server. For example, if my internal media machine has an ip of `10.0.0.6` then I would want to build as such: `API_URL=http://10.0.0.6 npm run build`. This will result in all of my client API requests being properly routed.
 
@@ -38,7 +38,7 @@ Unit tests:
 npm test
 ```
 
-** Requires karma-cli to be installed globally
+e2e tests:
 
 The e2e tests *should* work even though all of the API endpoints are going to scream 404s at you under the hood.  
 I'll put in a mock backend at somepoint - which should be easy since everything returns 204's:
