@@ -24,7 +24,7 @@ nodeRemote.config(
 
 function rewriteApiUrls(config){
   if(!/\.html$/i.test(config.url)){
-    config.url = (process.env.API_URL || 'localhost:9000') + config.url;
+    config.url = (process.env.API_URL || 'http://localhost:9001') + config.url;
   }
   return config;
 }
