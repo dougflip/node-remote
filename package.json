@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server",
     "test": "karma start --single-run",
-    "build": "browserify app/node-remote.js -t envify -o app/bundle.js",
+    "build": "browserify app/node-remote.js -o app/bundle.js",
     "e2e": "protractor protractor.conf.js"
   },
   "author": "Doug DiFilippo (dougflip)",
@@ -38,7 +38,8 @@
   },
   "browserify": {
     "transform": [
-      "browserify-shim"
+      "browserify-shim",
+      "envify"
     ]
   },
   "browserify-shim": {
