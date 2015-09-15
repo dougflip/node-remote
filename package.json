@@ -8,6 +8,7 @@
     "url": "git://github.com/dougflip/node-remote.git"
   },
   "scripts": {
+    "postinstall": "bower install",
     "start": "node server",
     "test": "karma start --single-run",
     "build": "browserify app/node-remote.js -o app/bundle.js",
@@ -23,6 +24,8 @@
     "events": "~1.0.0"
   },
   "devDependencies": {
+    "babelify": "^6.3.0",
+    "bower": "^1.5.2",
     "browserify": "~3.38.1",
     "browserify-shim": "~3.4.1",
     "express": "~4.8.7",
@@ -39,7 +42,8 @@
   "browserify": {
     "transform": [
       "browserify-shim",
-      "envify"
+      "envify",
+      "babelify"
     ]
   },
   "browserify-shim": {
