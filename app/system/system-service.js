@@ -1,20 +1,12 @@
-var ng           = require('angular');
-
-var EVT_VOLUME_CHANGE = 'system:volumeChange';
+var ng = require('angular');
 
 function SystemService($http, Events){
-  this.volume = 50;
   this.http = $http;
-  this.events = new Events();
+
+  // the UI component binds to this directly
+  // which is a little dirty, but keeping it simple for now...
+  this.volume = 50;
 }
-
-SystemService.prototype.onVolumeChange = function(scope, cb){
-  this.events.on(EVT_VOLUME_CHANGE, scope, cb);
-};
-
-SystemService.prototype.emitVolumeChange = function(){
-  this.events.emitter.emit(EVT_VOLUME_CHANGE, { volume: this.volume });
-};
 
 SystemService.prototype.mute = function(){
   this.volume = 0;
@@ -24,12 +16,10 @@ SystemService.prototype.mute = function(){
 
 SystemService.prototype.setVolume = function(level){
   level = parseNewLevel(level);
-  if(level === null){
-    return this.emitVolumeChange();
-  }
+
+  if(level === null) return this.emitVolumeChange();
 
   this.volume = level;
-  this.emitVolumeChange();
   return this.http.post('/system/set-volume', { level: this.volume });
 };
 
@@ -43,16 +33,11 @@ SystemService.prototype.suspend = function(){
 
 function parseNewLevel(level){
   level = parseInt(level);
-  if(!ng.isNumber(level) || ng.equals(level, NaN)){
-    return null;
-  }
 
-  if(level <= 0){
-    return 0;
-  }
-  if(level >= 100){
-    return 100;
-  }
+  if(!ng.isNumber(level) || ng.equals(level, NaN)) return null;
+
+  if(level <= 0) return 0;
+  if(level >= 100) return 100;
 
   return level;
 }

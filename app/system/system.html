@@ -14,19 +14,5 @@
     </div>
   </div>
   <hr />
-  <div class="row">
-    <div class="col-xs-6">
-      <form ng-submit="systemCtrl.setVolume(systemCtrl.volume)">
-        <input class="system--volumeValue" ng-model="systemCtrl.volume" placeholder="volume">
-      </form>
-    </div>
-    <div class="col-xs-6">
-      <button class="btn btn-lg system--volume-btn system--volume-up" ng-click="systemCtrl.setVolume(systemCtrl.volume + 10)">
-        <span class="glyphicon glyphicon-arrow-up"></span>
-      </button>
-      <button class="btn btn-lg system--volume-btn system--volume-down" ng-click="systemCtrl.setVolume(systemCtrl.volume - 10)">
-        <span class="glyphicon glyphicon-arrow-down"></span>
-      </button>
-    </div>
-  </div>
+  <volume-control></volume-control>
 </section>
