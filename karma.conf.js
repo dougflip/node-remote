@@ -25,9 +25,7 @@ module.exports = function(config) {
 
 
     // list of files to exclude
-    exclude: [
-      
-    ],
+    exclude: [],
 
 
     // preprocess matching files before serving them to the browser
@@ -38,7 +36,8 @@ module.exports = function(config) {
 
     browserify: {
         debug: true,
-        watch: true
+        watch: true,
+        transform: ['babelify']
     },
 
 
@@ -67,7 +66,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode

@@ -1,15 +1,15 @@
-var ng = require('angular');
+class SystemController {
+  constructor(systemService) {
+    this.systemService = systemService;
+  }
 
-function SystemCtrl($scope, systemService){
-  this.systemService = systemService;
+  closeWindow() {
+    this.systemService.closeWindow();
+  }
+
+  suspend(){
+    this.systemService.suspend();
+  }
 }
 
-SystemCtrl.prototype.closeWindow = function(){
-  this.systemService.closeWindow();
-};
-
-SystemCtrl.prototype.suspend = function(){
-  this.systemService.suspend();
-};
-
-module.exports = ['$scope', 'systemService', SystemCtrl];
+module.exports = ['systemService', SystemController];
