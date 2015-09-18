@@ -1,4 +1,4 @@
-ddescribe('SystemService', function(){
+describe('SystemService', function(){
   const mocks = require('angular-mock');
 
   let sut;

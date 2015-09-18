@@ -1,21 +1,19 @@
-var angular = require('angular');
+const angular = require('angular');
 
-var passThroughMethods = ['closeTab', 'nextTab', 'zoomIn', 'zoomOut', 'actualSize'];
+const passThroughMethods = ['closeTab', 'nextTab', 'zoomIn', 'zoomOut', 'actualSize'];
 
-function BrowserController(browserService){
-  this.browserService = browserService;
-  this.launchUrl = null;
+class BrowserController {
+  constructor(ctrlHelper, browserService) {
+    this.browserService = browserService;
+    ctrlHelper.createPassThroughMethods(passThroughMethods, this, browserService);
+
+    this.launchUrl = '';
+  }
+
+  launch() {
+    this.browserService.launch(this.launchUrl);
+    this.launchUrl = '';
+  }
 }
 
-BrowserController.prototype.launch = function(){
-  this.browserService.launch(this.launchUrl);
-  this.launchUrl = null;
-};
-
-function createBrowserCtrl(controllerHelper, browserService){
-  controllerHelper.createPassThroughMethods(passThroughMethods, BrowserController.prototype, browserService);
-
-  return new BrowserController(browserService);
-}
-
-module.exports = ['controllerHelper', 'browserService', createBrowserCtrl];
+module.exports = ['controllerHelper', 'browserService', BrowserController];
