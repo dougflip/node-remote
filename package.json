@@ -30,10 +30,9 @@
     "browserify-shim": "~3.4.1",
     "express": "~4.8.7",
     "karma": "~0.12.4",
-    "karma-browserify": "0.0.6",
+    "karma-browserify": "^4.3.0",
     "karma-chrome-launcher": "^0.2.0",
-    "karma-jasmine": "~0.2.0",
-    "karma-phantomjs-launcher": "~0.1.4"
+    "karma-jasmine": "~0.2.0"
   },
   "browser": {
     "./app/public/bower-components/angular/angular.js": "angular",
