@@ -1,10 +1,10 @@
 function createTouchPad(){
   return {
-    restrict: 'E',
     templateUrl: 'trackpad/touchpad.html',
     controller: ['trackpadService', TouchPadController],
     controllerAs: 'ctrl',
-    bindToController: true
+    bindToController: true,
+    scope: true
   }
 }
 

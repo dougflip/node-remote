@@ -87,6 +87,34 @@ img{
   width: 100%;
 }
 
+.mouse-pad {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mouse-pad__touch-pad {
+  height: 70%;
+}
+
+.mouse-pad__buttons {
+  height: 30%;
+  display: flex;
+}
+
+.mouse-pad__left-click, .mouse-pad__right-click {
+  width: 40%;
+}
+
+.mouse-pad__double-click {
+  width: 20%;
+}
+
+.touchpad {
+  height: 100%;
+  background-color: #333;
+}
+
 .touchpad-row{
   height: 60%;
 }
