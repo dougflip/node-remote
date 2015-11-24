@@ -9,9 +9,10 @@
   },
   "scripts": {
     "postinstall": "bower install",
-    "start": "node server",
+    "start": "webpack-dev-server",
     "test": "node_modules/karma/bin/karma start --single-run",
-    "build": "browserify app/node-remote.js -o app/bundle.js",
+    "build": "webpack",
+    "build:browserify": "browserify app/node-remote.js -o app/bundle.js",
     "e2e": "protractor protractor.conf.js"
   },
   "author": "Doug DiFilippo (dougflip)",
@@ -24,6 +25,9 @@
     "events": "~1.0.0"
   },
   "devDependencies": {
+    "babel-core": "^6.2.1",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
     "babelify": "^6.3.0",
     "bower": "^1.5.2",
     "browserify": "~3.38.1",
@@ -32,7 +36,9 @@
     "karma": "~0.12.4",
     "karma-browserify": "^4.3.0",
     "karma-chrome-launcher": "^0.2.0",
-    "karma-jasmine": "~0.2.0"
+    "karma-jasmine": "~0.2.0",
+    "webpack": "^1.12.8",
+    "webpack-dev-server": "^1.12.1"
   },
   "browser": {
     "./app/public/bower-components/angular/angular.js": "angular",
