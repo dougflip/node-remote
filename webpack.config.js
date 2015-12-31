@@ -1,4 +1,11 @@
 var path = require('path');
+var webpack = require('webpack');
+var ip = require('ip');
+
+// The whitelist key to default value mapping
+var envWhitelist = {
+  'API_URL': 'http://localhost:9001'
+};
 
 module.exports = {
   entry: './app/node-remote',
@@ -11,6 +18,14 @@ module.exports = {
     contentBase: "./app",
     port: 9000
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': Object.keys(process.env).filter(x => envWhitelist.hasOwnProperty(x)).reduce((a, x) => {
+        a[x] = JSON.stringify(process.env[x] || envWhitelist[x]);
+        return a;
+      }, {})
+    })
+  ],
   module: {
     loaders: [
       {
