@@ -14,14 +14,13 @@ module.exports = {
     filename: 'bundle.js'
   },
   devtool: '#inline-source-map',
-  devServer: {
-    contentBase: "./app",
-    port: 9000
-  },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': Object.keys(process.env).filter(x => envWhitelist.hasOwnProperty(x)).reduce((a, x) => {
+      'process.env': Object.keys(envWhitelist).filter(x => envWhitelist.hasOwnProperty(x)).reduce((a, x) => {
         a[x] = JSON.stringify(process.env[x] || envWhitelist[x]);
+        console.log('=====================');
+        console.log('Setting', x, 'to', a[x]);
+        console.log('=====================');
         return a;
       }, {})
     })

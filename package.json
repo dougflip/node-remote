@@ -1,15 +1,15 @@
 {
   "name": "node-remote",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Front end client for node-remote-api",
-  "main": "src/app.coffee",
+  "main": "app/node-remote.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/dougflip/node-remote.git"
   },
   "scripts": {
     "postinstall": "bower install",
-    "start": "webpack-dev-server",
+    "start": "http-server ./app -p 9000",
     "test": "node_modules/karma/bin/karma start --single-run",
     "build": "webpack",
     "e2e": "protractor protractor.conf.js"
@@ -31,12 +31,12 @@
     "browserify": "~3.38.1",
     "browserify-shim": "~3.4.1",
     "express": "~4.8.7",
+    "http-server": "^0.8.5",
     "ip": "^1.1.0",
     "karma": "~0.12.4",
     "karma-browserify": "^4.3.0",
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "~0.2.0",
-    "webpack": "^1.12.8",
-    "webpack-dev-server": "^1.12.1"
+    "webpack": "^1.12.8"
   }
 }
