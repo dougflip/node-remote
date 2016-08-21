@@ -1,0 +1,14 @@
+.hamburger {
+  width: 35px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;;
+  padding: 5px;
+
+  .line {
+    // border-top: 3px solid #fff;
+    height: 2px;
+    background-color: #fff;
+  }
+}

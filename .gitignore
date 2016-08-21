@@ -3,3 +3,4 @@ angular/bundle.js
 node_modules
 app/public/bower-components
 app/bundle.js
+dist

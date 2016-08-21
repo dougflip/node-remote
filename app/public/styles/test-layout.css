@@ -1,0 +1,79 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: Helvetica;
+}
+
+.app-menu {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+
+  transform: translateX(-100vw);
+
+  transition: 0.20s transform ease-out;
+}
+
+.app-menu .app-menu-content {
+  width: 75vw;
+  background-color: #fff;
+}
+
+.app-menu .app-menu-overlay {
+  flex: 1;
+  background-color: #333;
+  opacity: .75;
+}
+
+.app-menu-is-open .app-menu {
+  transform: translateX(0);
+}
+
+.app-content {
+  transition: all 0.20s ease-out;
+}
+
+.app-menu-is-open .app-content {
+  -webkit-filter: brightness(.8);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 44px;
+
+  background-color: #0066fa;
+}
+
+.header .menu-button {
+  margin: 0 25px 0 15px;
+}
+
+.header .page-title {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.hamburger {
+  width: 35px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.hamburger .line {
+  border-top: 3px solid #333;
+}

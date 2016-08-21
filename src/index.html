@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NodeRemote</title>
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="stylesheet" href="styles/bundle.css">
+</head>
+<body ng-app="nodeRemote">
+
+  <div class="app-menu">
+    <ul class="app-menu-links">
+      <li class="app-menu-link is-selected">System</li>
+      <li class="app-menu-link">Browser</li>
+      <li class="app-menu-link">Netflix</li>
+    </ul>
+  </div>
+
+  <div class="app-content">
+    <div class="app-menu-overlay"></div>
+    <div class="header">
+      <div class="menu-button">
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="page-title">System</div>
+    </div>
+    <div class="main-content">
+      <div class="mousepad-container">
+        <div class="mousepad">
+          <div class="touchpad"></div>
+          <div class="mouse-buttons">
+            <div class="left-click"></div>
+            <div class="double-click"></div>
+            <div class="right-click"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

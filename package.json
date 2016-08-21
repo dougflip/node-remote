@@ -9,10 +9,16 @@
   },
   "scripts": {
     "postinstall": "bower install",
-    "start": "http-server ./app -p 9000",
+    "start": "http-server ./dist -p 9000",
     "test": "node_modules/karma/bin/karma start --single-run",
     "build": "webpack",
-    "e2e": "protractor protractor.conf.js"
+    "e2e": "protractor protractor.conf.js",
+    "dev": "npm run js:build && npm run html:build && npm run sass:watch",
+    "build": "npm run js:build && npm run html:build && npm run sass:build",
+    "js:build": "cp src/main.js dist/main.js",
+    "html:build": "cp src/index.html dist/index.html",
+    "sass:build": "node-sass src/styles/main.scss dist/styles/bundle.css",
+    "sass:watch": "node-sass -wr src/styles/main.scss dist/styles/bundle.css"
   },
   "author": "Doug DiFilippo (dougflip)",
   "license": "MIT",
@@ -30,6 +36,7 @@
     "bower": "^1.5.2",
     "browserify": "~3.38.1",
     "browserify-shim": "~3.4.1",
+    "css-loader": "^0.23.1",
     "express": "~4.8.7",
     "http-server": "^0.8.5",
     "ip": "^1.1.0",
@@ -37,6 +44,8 @@
     "karma-browserify": "^4.3.0",
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "~0.2.0",
-    "webpack": "^1.12.8"
+    "node-sass": "^3.8.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2"
   }
 }

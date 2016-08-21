@@ -1,0 +1,22 @@
+.app-content {
+
+  .app-menu-overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #333;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+}
+
+.app-menu-is-open {
+  .app-content {
+    .app-menu-overlay {
+      visibility: visible;
+      opacity: .6;
+    }
+  }
+}

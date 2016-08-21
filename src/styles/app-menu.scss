@@ -1,0 +1,29 @@
+.app-menu {
+  position: absolute;
+  z-index: 1;
+  width: 75vw;
+  height: 100vh;
+
+  background-color: #fff;
+
+  transform: translateX(-75vw);
+  transition: 0.20s transform ease-out;
+
+  .app-menu-links {
+    margin: 20px 0 0 0;
+    padding: 0;
+
+    .app-menu-link {
+      padding: 15px;
+      font-size: 1.1rem;
+
+      &.is-selected {
+        background-color: #ddd;
+      }
+    }
+  }
+}
+
+.app-menu-is-open .app-menu {
+  transform: translateX(0);
+}
