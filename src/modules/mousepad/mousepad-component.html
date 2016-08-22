@@ -1,8 +1,12 @@
 <div class="mousepad">
-  <div class="touchpad"></div>
+  <div class="touchpad"
+      hm-panmove="$ctrl.onDrag($event)"></div>
   <div class="mouse-buttons">
-    <div class="left-click"></div>
-    <div class="double-click"></div>
-    <div class="right-click"></div>
+    <div class="left-click"
+        on-tap="$ctrl.onLeftClick()"></div>
+    <div class="double-click"
+        on-tap="$ctrl.onDoubleClick()"></div>
+    <div class="right-click"
+        on-tap="$ctrl.onRightClick()"></div>
   </div>
 </div>

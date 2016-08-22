@@ -11,7 +11,7 @@
     "start": "run-p dev:server html:watch js:watch sass:watch",
     "dev:server": "http-server ./dist -p 9000",
     "js:build": "webpack --config webpack-new.config.js",
-    "js:watch": "onchange './src/**/*.js' -- npm run js:build",
+    "js:watch": "onchange 'src/**/*.js' 'src/**/*.html' -- npm run js:build",
     "html:build": "cp src/index.html dist/index.html",
     "html:watch": "onchange './src/index.html' -- npm run html:build",
     "sass:build": "node-sass src/styles/main.scss dist/styles/bundle.css",
@@ -23,7 +23,9 @@
     "url": "https://github.com/dougflip/node-remote/issues"
   },
   "dependencies": {
-    "angular": "^1.5.8"
+    "angular": "^1.5.8",
+    "angular-hammer": "^2.2.0",
+    "hammerjs": "^2.0.8"
   },
   "devDependencies": {
     "babel-core": "^6.13.2",
