@@ -10,6 +10,14 @@
     opacity: 0;
     transition: opacity .25s ease;
   }
+
+  .mousepad-container {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+
+    padding: 5px;
+  }
 }
 
 .app-menu-is-open {

@@ -1,17 +1,23 @@
-const path = require('path');
+var path = require('path');
 
 module.exports = {
-  entry: {
-    app: ['./app/test-layout.js']
-  },
+  entry: './src/main.js',
   output: {
-    filename: '[name].js',
-    path: path.join(__dirname, './app'),
-    publicPath: '/build'
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
+  devtool: 'inline-source-map',
   module: {
-        loaders: [
-            { test: /\.css$/, loader: "style!css" }
-        ]
-    }
-}
+    loaders: [
+      {test: /\.html$/, loader: 'raw'},
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ]
+  }
+};
