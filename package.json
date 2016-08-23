@@ -7,15 +7,19 @@
     "type": "git",
     "url": "git://github.com/dougflip/node-remote.git"
   },
+  "config": {
+    "apiUrl": "http:localhost:9001"
+  },
   "scripts": {
     "start": "run-p dev:server html:watch js:watch sass:watch",
     "dev:server": "http-server ./dist -p 9000",
     "js:build": "webpack --config webpack-new.config.js",
-    "js:watch": "onchange 'src/**/*.js' 'src/**/*.html' -- npm run js:build",
+    "js:watch": "onchange -i 'src/**/*.js' 'src/**/*.html' -- npm run js:build",
     "html:build": "cp src/index.html dist/index.html",
-    "html:watch": "onchange './src/index.html' -- npm run html:build",
+    "html:watch": "onchange -i './src/index.html' -- npm run html:build",
     "sass:build": "node-sass src/styles/main.scss dist/styles/bundle.css",
-    "sass:watch": "onchange './src/**/*.scss' -- npm run sass:build"
+    "sass:watch": "onchange -i './src/**/*.scss' -- npm run sass:build",
+    "config:apiUrl": "npm config set node-remote:apiUrl --"
   },
   "author": "Doug DiFilippo (dougflip)",
   "license": "MIT",

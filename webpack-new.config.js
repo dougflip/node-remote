@@ -1,4 +1,5 @@
-var path = require('path');
+const DefinePlugin = require('webpack').DefinePlugin;
+const path = require('path');
 
 module.exports = {
   entry: './src/main.js',
@@ -19,5 +20,10 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new DefinePlugin({
+      API_URL: JSON.stringify(process.env.npm_package_config_apiUrl)
+    })
+  ]
 };

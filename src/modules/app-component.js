@@ -1,7 +1,8 @@
 class NodeRemoteApp {
 
-  constructor($http) {
+  constructor($http, API_URL) {
     this.$http = $http;
+    this.API_URL = API_URL;
   }
 
   $onInit() {
@@ -19,7 +20,7 @@ class NodeRemoteApp {
   moveMouse({ x, y }) {
     this.$http({
       method: 'POST',
-      url: 'http://10.0.0.17:9001/mouse/move-relative',
+      url: `${this.API_URL}/mouse/move-relative`,
       data: { x, y }
     });
   }
@@ -27,21 +28,21 @@ class NodeRemoteApp {
   leftClick() {
     this.$http({
       method: 'POST',
-      url: 'http://10.0.0.17:9001/mouse/left-click'
+      url: `${this.API_URL}/mouse/left-click`
     });
   }
 
   rightClick() {
     this.$http({
       method: 'POST',
-      url: 'http://10.0.0.17:9001/mouse/right-click'
+      url: `${this.API_URL}/mouse/right-click`
     });
   }
 
   doubleClick() {
     this.$http({
       method: 'POST',
-      url: 'http://10.0.0.17:9001/mouse/double-click'
+      url: `${this.API_URL}/mouse/double-click`
     });
   }
 

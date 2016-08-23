@@ -6,4 +6,4 @@ import nodeRemoteMods from './modules/modules';
 const nodeRemoteModule = angular.module('nodeRemote', [
   'hmTouchEvents',
   nodeRemoteMods.name
-]);
+]).constant('API_URL', API_URL);
