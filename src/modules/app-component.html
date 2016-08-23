@@ -1,0 +1,30 @@
+<div class="app">
+  <div class="app-menu">
+    <ul class="app-menu-links">
+      <li class="app-menu-link is-selected">System</li>
+      <li class="app-menu-link">Browser</li>
+      <li class="app-menu-link">Netflix</li>
+    </ul>
+  </div>
+
+  <div class="app-content">
+    <div class="app-menu-overlay"></div>
+    <div class="header">
+      <div class="menu-button">
+        <div class="hamburger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div class="page-title">System</div>
+    </div>
+    <div class="main-content">
+      <mousepad class="mousepad-container"
+          on-move="$ctrl.moveMouse(mouseInfo)"
+          on-left-click="$ctrl.leftClick()"
+          on-right-click="$ctrl.rightClick()"
+          on-double-click="$ctrl.doubleClick()"></mousepad>
+    </div>
+  </div>
+</div>
