@@ -4,11 +4,23 @@ class NodeRemoteApp {
     this.$http = $http;
   }
 
-  moveMouse({ deltaX, deltaY }) {
+  $onInit() {
+    this.isMenuOpen = false;
+  }
+
+  openMainMenu() {
+    this.isMenuOpen = true;
+  }
+
+  closeMainMenu() {
+    this.isMenuOpen = false;
+  }
+
+  moveMouse({ x, y }) {
     this.$http({
       method: 'POST',
       url: 'http://10.0.0.17:9001/mouse/move-relative',
-      data: { x: deltaX, y: deltaY }
+      data: { x, y }
     });
   }
 

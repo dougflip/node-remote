@@ -6,9 +6,9 @@ class Mousepad {
   constructor() {}
 
   onDrag(evt) {
-    const deltaX = evt.velocityX * 50;
-    const deltaY = evt.velocityY * 50;
-    this.onMove({ mouseInfo: { evt, deltaX, deltaY } });
+    const x = evt.velocityX * 75;
+    const y = evt.velocityY * 75;
+    this.onMove({ $event: { evt, x, y } });
   }
 }
 
