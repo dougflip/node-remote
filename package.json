@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "run-p dev:server html:watch js:watch sass:watch",
+    "build": "npm-run-all html:build js:build sass:build",
     "dev:server": "http-server ./dist -p 9000",
     "js:build": "webpack --config webpack-new.config.js",
     "js:watch": "onchange -i 'src/**/*.js' 'src/**/*.html' -- npm run js:build",
@@ -41,6 +42,7 @@
     "npm-run-all": "^3.0.0",
     "onchange": "^2.5.0",
     "raw-loader": "^0.5.1",
-    "watch": "^0.19.2"
+    "watch": "^0.19.2",
+    "webpack": "^1.13.2"
   }
 }
