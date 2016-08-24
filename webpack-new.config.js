@@ -1,5 +1,10 @@
 const DefinePlugin = require('webpack').DefinePlugin;
 const path = require('path');
+const ip = require('ip');
+
+// allow overriding the api url via an npm config var
+//  otherwise just default to the current ip at port 9001
+const apiUrl = process.env.npm_package_config_apiUrl || `http://${ip.address()}:9001`;
 
 module.exports = {
   entry: './src/main.js',
@@ -22,8 +27,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new DefinePlugin({
-      API_URL: JSON.stringify(process.env.npm_package_config_apiUrl)
-    })
+    new DefinePlugin({ API_URL: JSON.stringify(apiUrl) })
   ]
 };
