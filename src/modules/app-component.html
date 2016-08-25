@@ -25,6 +25,11 @@
       <div class="page-title">System</div>
     </div>
     <div class="main-content">
+      <form class="send-text-form"
+          ng-submit="$ctrl.submitTextToSend()">
+        <input class="text-to-send" placeholder="Type text to send..."
+            ng-model="$ctrl.textToSend" />
+      </form>
       <mousepad class="mousepad-container"
           on-move="$ctrl.moveMouse($event)"
           on-left-click="$ctrl.leftClick()"

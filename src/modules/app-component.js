@@ -7,6 +7,7 @@ class NodeRemoteApp {
 
   $onInit() {
     this.isMenuOpen = false;
+    this.textToSend = '';
   }
 
   openMainMenu() {
@@ -44,6 +45,15 @@ class NodeRemoteApp {
       method: 'POST',
       url: `${this.API_URL}/mouse/double-click`
     });
+  }
+
+  submitTextToSend() {
+    this.$http({
+      method: 'POST',
+      url: `${this.API_URL}/keyboard/send-text`,
+      data: { text: this.textToSend }
+    });
+    this.textToSend = '';
   }
 
 }
