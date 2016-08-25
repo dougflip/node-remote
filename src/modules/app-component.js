@@ -56,6 +56,20 @@ class NodeRemoteApp {
     this.textToSend = '';
   }
 
+  closeWindow() {
+    this.$http({
+      method: 'POST',
+      url: `${this.API_URL}/system/close-window`
+    });
+  }
+
+  suspend() {
+    this.$http({
+      method: 'POST',
+      url: `${this.API_URL}/system/suspend`
+    });
+  }
+
 }
 
 export default {

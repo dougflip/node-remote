@@ -24,6 +24,12 @@
       </div>
       <div class="page-title">System</div>
     </div>
+    <div class="quick-commands">
+      <button class="close"
+          hm-tap="$ctrl.closeWindow()">&times;</button>
+      <button class="suspend"
+          hm-tap="$ctrl.suspend()">!</button>
+    </div>
     <div class="main-content">
       <form class="send-text-form"
           ng-submit="$ctrl.submitTextToSend()">

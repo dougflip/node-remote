@@ -11,14 +11,47 @@
     transition: opacity .25s ease;
   }
 
+  .quick-commands {
+    width: 100%;
+    background-color: darken(#0066fa, 5);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 5px 15px;
+
+    .suspend, .close {
+      width: 35px;
+      height: 35px;
+      border-radius: 100%;
+      line-height: 1;
+      font-size: 2rem;
+      font-weight: 700;
+      font-family: Arial;
+      padding: 0;
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    .suspend {
+      background-image: radial-gradient(circle at bottom center, darken(#f00, 5), lighten(#f00, 15));
+    }
+
+    .close {
+      background-image: radial-gradient(circle at bottom center, darken(#e54500, 5), lighten(#e54500, 15));
+    }
+
+  }
+
   .main-content {
-    padding: 5px;
+    padding: 5px 15px;
 
     .text-to-send {
       width: 100%;
       margin-bottom: 5px;
       padding: 5px;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       border-radius: 5px;
     }
 
