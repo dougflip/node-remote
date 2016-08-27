@@ -26,7 +26,6 @@ export default {
     onScrollUp: '&',
     onScrollDown: '&',
     onLeftClick: '&',
-    onDoubleClick: '&',
     onRightClick: '&'
   }
 };

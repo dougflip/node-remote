@@ -9,27 +9,8 @@
     flex-basis: 80%;
     border-left: 2px solid #666;
     border-top: 2px solid #666;
-    border-right: 1px solid #999;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-
-    border-bottom: 3px solid #111;
-  }
-
-  .mouse-buttons {
-    flex-grow: 1;
-
-    display: flex;
-
-    background-color: #333;
-
-    .left-click, .right-click {
-      flex-grow: 2;
-    }
-
-    .double-click {
-      flex-grow: 1;
-      background-color: #aaa;
-    }
+    border-right: 1px solid #666;
+    border-bottom: 1px solid #999;
+    border-radius: 5px;
   }
 }
