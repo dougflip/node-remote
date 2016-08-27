@@ -10,6 +10,12 @@ class Mousepad {
     const y = evt.velocityY * 75;
     this.onMove({ $event: { evt, x, y } });
   }
+
+  onPinchMove(evt) {
+    return evt.overallVelocity <= 0
+      ? this.onScrollUp({ $event: evt })
+      : this.onScrollDown({ $event: evt });
+  }
 }
 
 export default {
@@ -17,6 +23,8 @@ export default {
   controller: Mousepad,
   bindings: {
     onMove: '&',
+    onScrollUp: '&',
+    onScrollDown: '&',
     onLeftClick: '&',
     onDoubleClick: '&',
     onRightClick: '&'

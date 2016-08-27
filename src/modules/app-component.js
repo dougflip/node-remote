@@ -26,6 +26,14 @@ class NodeRemoteApp {
     });
   }
 
+  scrollUp(evt) {
+    this.$http({ method: 'POST', url: `${this.API_URL}/mouse/scroll-up` });
+  }
+
+  scrollDown(evt) {
+    this.$http({ method: 'POST', url: `${this.API_URL}/mouse/scroll-down` });
+  }
+
   leftClick() {
     this.$http({
       method: 'POST',
