@@ -9,7 +9,8 @@
     </ul>
   </div>
 
-  <div class="app-content">
+  <div class="app-content"
+      ng-if="!$ctrl.isLoading">
     <div class="app-menu-overlay"
         hm-tap="$ctrl.closeMainMenu()"
         hm-panleft="$ctrl.closeMainMenu()"></div>
@@ -31,6 +32,9 @@
           hm-tap="$ctrl.suspend()">!</button>
     </div>
     <div class="main-content">
+      <volume-slider
+          level="{{ $ctrl.systemVolume }}"
+          on-level-change="$ctrl.onVolumeLevelChange($event)"></volume-slider>
       <form class="send-text-form"
           ng-submit="$ctrl.submitTextToSend()">
         <input class="text-to-send" placeholder="Type text to send..."

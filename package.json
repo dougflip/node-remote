@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "run-p dev:server html:watch js:watch sass:watch",
-    "start:bg": "forever start -c \"npm run dev:server\" ./",
+    "start:bg": "npm run build && forever start -c \"npm run dev:server\" ./",
     "build": "npm-run-all html:build js:build sass:build",
     "dev:server": "http-server ./dist -p 9000",
     "js:build": "webpack --config webpack-new.config.js",
@@ -21,6 +21,7 @@
     "html:watch": "onchange -i './src/index.html' -- npm run html:build",
     "sass:build": "node-sass src/styles/main.scss dist/styles/bundle.css",
     "sass:watch": "onchange -i './src/**/*.scss' -- npm run sass:build",
+    "image:build": "cp -r src/images dist",
     "config:apiUrl": "npm config set node-remote:apiUrl --"
   },
   "author": "Doug DiFilippo (dougflip)",

@@ -3,11 +3,20 @@ class NodeRemoteApp {
   constructor($http, API_URL) {
     this.$http = $http;
     this.API_URL = API_URL;
+
+    this.isLoading = true;
+    $http.get(`${API_URL}/system/get-volume`)
+      .then(res => this.initData(res.data))
+      .finally(() => this.isLoading = false);
   }
 
   $onInit() {
     this.isMenuOpen = false;
     this.textToSend = '';
+  }
+
+  initData({ volume }) {
+    this.systemVolume = volume;
   }
 
   openMainMenu() {
@@ -16,6 +25,14 @@ class NodeRemoteApp {
 
   closeMainMenu() {
     this.isMenuOpen = false;
+  }
+
+  onVolumeLevelChange({ level }) {
+    this.$http({
+      method: 'POST',
+      url: `${this.API_URL}/system/set-volume`,
+      data: { level }
+    });
   }
 
   moveMouse({ x, y }) {

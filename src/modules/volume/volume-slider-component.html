@@ -1,0 +1,13 @@
+<div class="volume-slider-wrapper">
+  <div class="speaker-icons">
+    <img class="mute" src="images/mute.svg"
+        ng-if="$ctrl.currentLevel <= 0"
+        hm-tap="$ctrl.restoreVolume()" />
+    <img class="mute" src="images/speaker.svg"
+        ng-if="$ctrl.currentLevel > 0"
+        hm-tap="$ctrl.mute()" />
+  </div>
+  <input type="range" class="volume-slider"
+      ng-model="$ctrl.currentLevel"
+      ng-change="$ctrl.onCurrentLevelChange()" />
+</div>

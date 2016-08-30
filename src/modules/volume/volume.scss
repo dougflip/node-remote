@@ -1,0 +1,12 @@
+.volume-slider-wrapper {
+  display: flex;
+  margin-bottom: 10px;
+
+  .mute {
+      width: 35px;
+      margin-right: 10px;
+  }
+  .volume-slider {
+    width: 100%;
+  }
+}
