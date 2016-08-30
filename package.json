@@ -13,7 +13,7 @@
   "scripts": {
     "start": "run-p dev:server html:watch js:watch sass:watch",
     "start:bg": "npm run build && forever start -c \"npm run dev:server\" ./",
-    "build": "npm-run-all html:build js:build sass:build",
+    "build": "npm-run-all html:build js:build sass:build image:build",
     "dev:server": "http-server ./dist -p 9000",
     "js:build": "webpack --config webpack-new.config.js",
     "js:watch": "onchange -i 'src/**/*.js' 'src/**/*.html' -- npm run js:build",
