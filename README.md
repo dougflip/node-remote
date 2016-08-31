@@ -15,10 +15,14 @@ npm start
 
 This will start up a small node server running on port `9000`. You should now be able to navigate to [http://localhost:9000/](http://localhost:9000/).
 
-## Basic Overview
+## Configuring the IP of the API Server
 
-You will have two servers running behind the scenes: 1 to serve this front end SPA and another serving the [API](https://github.com/dougflip/node-remote-api). As mentioned above, these ports are defaulted/coded to 9000 and 9001.
+By default, the build will use the IP of the machine building the code as the IP of the API server.
+In other words, where you built the code is where the client will send requests.
+This is most likely what you want which means everything will just work out of the box, but if you need to override that behavior:
 
-The general concept is that this client makes AJAX requests to the API which in turn takes action on your media machine. Everything is now set up to run over CORS and a build step (along with an Angular interceptor) ensures the client calls go directly to the API server.
+```
+npm run config:apiUrl -- http://my-machine-name-or-ip:9001
+```
 
-So when you build the client code you most likely need to know the IP of the machine hosting the API server. For example, if my internal media machine has an ip of `10.0.0.6` then I would want to build as such: `API_URL=http://10.0.0.6 npm run build`. This will result in all of my client API requests being properly routed.
+Rebuild the client (`npm start`) and requests will now be made to the address you specified
