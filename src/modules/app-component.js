@@ -1,12 +1,11 @@
 class NodeRemoteApp {
 
-  constructor($http, API_URL) {
-    this.$http = $http;
-    this.API_URL = API_URL;
+  constructor(nodeRemoteCoreApi) {
+    this.nodeRemoteCoreApi = nodeRemoteCoreApi;
 
     this.isLoading = true;
-    $http.get(`${API_URL}/system/get-volume`)
-      .then(res => this.initData(res.data))
+    nodeRemoteCoreApi.getVolume()
+      .then(this.initData.bind(this))
       .finally(() => this.isLoading = false);
   }
 
@@ -28,71 +27,44 @@ class NodeRemoteApp {
   }
 
   onVolumeLevelChange({ level }) {
-    this.$http({
-      method: 'POST',
-      url: `${this.API_URL}/system/set-volume`,
-      data: { level }
-    });
+    this.nodeRemoteCoreApi.setVolume(level);
   }
 
-  moveMouse({ x, y }) {
-    this.$http({
-      method: 'POST',
-      url: `${this.API_URL}/mouse/move-relative`,
-      data: { x, y }
-    });
+  moveMouse(evt) {
+    this.nodeRemoteCoreApi.moveMouse(evt);
   }
 
   scrollUp(evt) {
-    this.$http({ method: 'POST', url: `${this.API_URL}/mouse/scroll-up` });
+    this.nodeRemoteCoreApi.scrollUp();
   }
 
   scrollDown(evt) {
-    this.$http({ method: 'POST', url: `${this.API_URL}/mouse/scroll-down` });
+    this.nodeRemoteCoreApi.scrollDown();
   }
 
   leftClick() {
-    this.$http({
-      method: 'POST',
-      url: `${this.API_URL}/mouse/left-click`
-    });
+    this.nodeRemoteCoreApi.leftClick();
   }
 
   rightClick() {
-    this.$http({
-      method: 'POST',
-      url: `${this.API_URL}/mouse/right-click`
-    });
+    this.nodeRemoteCoreApi.rightClick();
   }
 
   doubleClick() {
-    this.$http({
-      method: 'POST',
-      url: `${this.API_URL}/mouse/double-click`
-    });
+    this.nodeRemoteCoreApi.doubleClick();
   }
 
   submitTextToSend() {
-    this.$http({
-      method: 'POST',
-      url: `${this.API_URL}/keyboard/send-text`,
-      data: { text: this.textToSend }
-    });
+    this.nodeRemoteCoreApi.sendText(this.textToSend);
     this.textToSend = '';
   }
 
   closeWindow() {
-    this.$http({
-      method: 'POST',
-      url: `${this.API_URL}/system/close-window`
-    });
+    this.nodeRemoteCoreApi.closeWindow();
   }
 
   suspend() {
-    this.$http({
-      method: 'POST',
-      url: `${this.API_URL}/system/suspend`
-    });
+    this.nodeRemoteCoreApi.suspend();
   }
 
 }
