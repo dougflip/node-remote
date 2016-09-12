@@ -55,7 +55,7 @@ class NodeRemoteApp {
   }
 
   submitTextToSend() {
-    this.nodeRemoteCoreApi.sendText(this.textToSend);
+    this.nodeRemoteCoreApi.sendAndEnterText(this.textToSend);
     this.textToSend = '';
   }
 

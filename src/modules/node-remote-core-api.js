@@ -50,6 +50,14 @@ export default ($http, API_URL) => {
     return post('keyboard/send-text', { data: { text } });
   };
 
+  const sendKeys = keys => {
+    return post('keyboard/send-keys', { data: { keys } });
+  };
+
+  const sendAndEnterText = text => {
+    return sendText(`${text}\n`)
+  };
+
   const closeWindow = () => {
     return post('system/close-window')
   };
@@ -68,6 +76,8 @@ export default ($http, API_URL) => {
     rightClick,
     doubleClick,
     sendText,
+    sendKeys,
+    sendAndEnterText,
     closeWindow,
     suspend
   };
