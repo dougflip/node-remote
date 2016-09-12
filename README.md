@@ -17,12 +17,16 @@ This will start up a small node server running on port `9000`. You should now be
 
 ## Configuring the IP of the API Server
 
-By default, the build will use the IP of the machine building the code as the IP of the API server.
-In other words, where you built the code is where the client will send requests.
-This is most likely what you want which means everything will just work out of the box, but if you need to override that behavior:
-
 ```
 npm run config:apiUrl -- http://my-machine-name-or-ip:9001
 ```
 
-Rebuild the client (`npm start`) and requests will now be made to the address you specified
+This should only be necessary if you changed the default ports of the API server or if you don't want to use the IP of your machine for some reason. This allows you to override the API URL and supply anything you want.
+
+## Run forever
+
+```
+npm run start:bg
+```
+
+This will build the code and run the app in the background.
