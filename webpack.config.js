@@ -1,35 +1,24 @@
-var path = require('path');
-var webpack = require('webpack');
-var ip = require('ip');
+const DefinePlugin = require('webpack').DefinePlugin;
+const path = require('path');
+const ip = require('ip');
 
-// The whitelist key to default value mapping
-var envWhitelist = {
-  'API_URL': 'http://localhost:9001'
-};
+// allow overriding the api url via an npm config var
+//  otherwise just default to the current ip at port 9001
+const apiUrl = process.env.npm_package_config_apiUrl || `http://${ip.address()}:9001`;
 
 module.exports = {
-  entry: './app/node-remote',
+  entry: './src/main.js',
   output: {
-    path: __dirname + '/app',
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
-  devtool: '#inline-source-map',
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': Object.keys(envWhitelist).filter(x => envWhitelist.hasOwnProperty(x)).reduce((a, x) => {
-        a[x] = JSON.stringify(process.env[x] || envWhitelist[x]);
-        console.log('=====================');
-        console.log('Setting', x, 'to', a[x]);
-        console.log('=====================');
-        return a;
-      }, {})
-    })
-  ],
+  devtool: 'inline-source-map',
   module: {
     loaders: [
+      {test: /\.html$/, loader: 'raw'},
       {
-        test: /\.js/,
-        exclude: /(node_modules|bower_components)/,
+        test: /\.js$/,
+        exclude: /(node_modules)/,
         loader: 'babel',
         query: {
           presets: ['es2015']
@@ -37,9 +26,7 @@ module.exports = {
       }
     ]
   },
-  externals: [
-    {
-      "angular": "window.angular"
-    }
+  plugins: [
+    new DefinePlugin({ API_URL: JSON.stringify(apiUrl) })
   ]
 };

@@ -15,7 +15,7 @@
     "start:bg": "npm run build && forever start -c \"npm run dev:server\" ./",
     "build": "npm-run-all html:build js:build sass:build image:build",
     "dev:server": "http-server ./dist -p 9000",
-    "js:build": "webpack --config webpack-new.config.js",
+    "js:build": "webpack",
     "js:watch": "onchange -i 'src/**/*.js' 'src/**/*.html' -- npm run js:build",
     "html:build": "cp src/index.html dist/index.html",
     "html:watch": "onchange -i './src/index.html' -- npm run html:build",
