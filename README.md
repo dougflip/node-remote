@@ -23,10 +23,15 @@ npm run config:apiUrl -- http://my-machine-name-or-ip:9001
 
 This should only be necessary if you changed the default ports of the API server or if you don't want to use the IP of your machine for some reason. This allows you to override the API URL and supply anything you want.
 
-## Run forever
+## Running with systemd
+
+This setup is based on [running-node-js-linux-systemd](https://blog.codeship.com/running-node-js-linux-systemd/)
+
+Use the sample unit file [node-remote-client@.service](node-remote-client@.service) as a basis for a
+file saved at `/etc/systemd/system/node-remote-client@.service`
 
 ```
-npm run start:bg
+systemctl daemon-reload
+systemctl enable node-remote-client@1
+systemctl start node-remote-client@1
 ```
-
-This will build the code and run the app in the background.

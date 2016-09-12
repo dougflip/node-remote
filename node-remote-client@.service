@@ -1,0 +1,15 @@
+[Unit]
+Description=NodeRemote Client
+After=network.target
+
+[Service]
+User=user
+Environment=NODE_ENV=production
+WorkingDirectory=absolute-path-to-cloned-repository
+ExecStart=absolute-path-to-npm-installed-binary run start:bg
+Restart=always
+RestartSec=500ms
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target
