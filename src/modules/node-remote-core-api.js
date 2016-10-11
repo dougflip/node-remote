@@ -14,57 +14,31 @@ export default ($http, API_URL) => {
     return $http(opts);
   };
 
-  const getVolume = () => {
-    return $http.get(`${API_URL}/system/get-volume`).then(x => x.data);
-  };
+  const getVolume = () => $http.get(`${API_URL}/system/get-volume`).then(x => x.data);
 
-  const setVolume = level => {
-    return post('system/set-volume', { data: { level } });
-  };
+  const setVolume = level => post('system/set-volume', { data: { level } });
 
-  const moveMouse = ({ x, y }) => {
-    return post('mouse/move-relative', { data: { x, y } });
-  };
+  const moveMouse = ({ x, y }) => post('mouse/move-relative', { data: { x, y } });
 
-  const scrollUp = () => {
-    return post('mouse/scroll-up');
-  };
+  const scrollUp = () => post('mouse/scroll-up');
 
-  const scrollDown = () => {
-    return post('mouse/scroll-down');
-  };
+  const scrollDown = () => post('mouse/scroll-down');
 
-  const leftClick = () => {
-    return post('mouse/left-click');
-  };
+  const leftClick = () => post('mouse/left-click');
 
-  const rightClick = () => {
-    return post('mouse/right-click');
-  };
+  const rightClick = () => post('mouse/right-click');
 
-  const doubleClick = () => {
-    return post('mouse/double-click')
-  };
+  const doubleClick = () => post('mouse/double-click');
 
-  const sendText = text => {
-    return post('keyboard/send-text', { data: { text } });
-  };
+  const sendText = text => post('keyboard/send-text', { data: { text } });
 
-  const sendKeys = keys => {
-    return post('keyboard/send-keys', { data: { keys } });
-  };
+  const sendKeys = keys => post('keyboard/send-keys', { data: { keys } });
 
-  const sendAndEnterText = text => {
-    return sendText(`${text}\n`)
-  };
+  const sendAndEnterText = text => sendText(`${text}\n`);
 
-  const closeWindow = () => {
-    return post('system/close-window')
-  };
+  const closeWindow = () => post('system/close-window');
 
-  const suspend = () => {
-    return post('system/suspend');
-  };
+  const suspend = () => post('system/suspend');
 
   return {
     getVolume,
